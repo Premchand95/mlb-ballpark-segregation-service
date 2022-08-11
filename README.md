@@ -10,18 +10,18 @@ Related Resources
 ```shell
 GOPATH
 ├─src ...
-├─├─github.com                    # Test files (alternatively `spec` or `tests`)
-│   ├── mlb          # Load and stress tests
-│   │   ├── mlb-ballpark-segregation-service         # End-to-end, integration tests (alternatively `e2e`)
+├─├─github.com                    
+│   ├── mlb          
+│   │   ├── mlb-ballpark-segregation-service
 │   │   │   └── front-service/design
-|   |   |   └── DockerFile        # Unit tests
+|   |   |   └── DockerFile        
 └── ...
 
 ```
 
 ## Goa Generate 
 
-Run the below command to generate design files
+Run the below command in /front-service folder to generate design files
 
 ```shell
 goa gen github.com/mlb/mlb-ballpark-segregation-service/front_service/design
