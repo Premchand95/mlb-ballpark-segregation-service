@@ -1,0 +1,2165 @@
+openapi: 3.0.3
+info:
+    title: MLB BallPark Segregation Service API
+    description: The MLB BallPark Segregation Service API provides REST-ful API to retrieve custom schedules of mlb games
+    version: 1.0.0
+servers:
+    - url: http://localhost:80
+      description: Default server for MLB BallPark Segregation Service API
+paths:
+    /api/v1/teams/{id}/schedule:
+        get:
+            tags:
+                - Scheduler
+            summary: Retrieve a schedule of games
+            description: Retrieves a collection of licenses
+            operationId: Scheduler#index
+            parameters:
+                - name: id
+                  in: path
+                  description: The unique identifier of the team
+                  required: true
+                  schema:
+                    type: integer
+                    description: The unique identifier of the team
+                    example: 120
+                  example: 120
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/IndexRequestBody'
+                        example:
+                            date: "2022-08-10"
+            responses:
+                "200":
+                    description: OK response.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Schedule'
+                            example:
+                                copyright: Quaerat amet deserunt animi mollitia exercitationem.
+                                dates:
+                                    - date: "2021-09-19"
+                                      events:
+                                        - Aliquam odio quis et ratione.
+                                        - Culpa voluptas nemo voluptas eos dolor ex.
+                                        - Placeat nesciunt sit modi.
+                                      games:
+                                        - calendarEventID: 14-632438-2021-09-19
+                                          content:
+                                            link: /api/v1/game/632438/content
+                                          dayNight: day
+                                          doubleHeader: "N"
+                                          gameDate: "2021-09-19T17:05:00Z"
+                                          gameNumber: 1
+                                          gamePk: 632438
+                                          gameType: R
+                                          gamedayType: P
+                                          gamesInSeries: 3
+                                          ifNecessary: "N"
+                                          ifNecessaryDescription: Normal Game
+                                          inningBreakLength: 120
+                                          isTie: false
+                                          link: /api/v1.1/game/632438/feed/live
+                                          officialDate: "2021-09-19"
+                                          publicFacing: true
+                                          recordSource: S
+                                          reverseHomeAwayStatus: false
+                                          scheduledInnings: 9
+                                          season: "2021"
+                                          seasonDisplay: "2021"
+                                          seriesDescription: Regular Season
+                                          seriesGameNumber: 3
+                                          status:
+                                            abstractGameCode: F
+                                            abstractGameState: Final
+                                            codedGameState: F
+                                            detailedState: Final
+                                            startTimeTBD: false
+                                            statusCode: F
+                                          teams:
+                                            away:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                            home:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                          tiebreaker: "N"
+                                          venue:
+                                            id: 3309
+                                            link: /api/v1/venues/3309
+                                            name: Nationals Park
+                                        - calendarEventID: 14-632438-2021-09-19
+                                          content:
+                                            link: /api/v1/game/632438/content
+                                          dayNight: day
+                                          doubleHeader: "N"
+                                          gameDate: "2021-09-19T17:05:00Z"
+                                          gameNumber: 1
+                                          gamePk: 632438
+                                          gameType: R
+                                          gamedayType: P
+                                          gamesInSeries: 3
+                                          ifNecessary: "N"
+                                          ifNecessaryDescription: Normal Game
+                                          inningBreakLength: 120
+                                          isTie: false
+                                          link: /api/v1.1/game/632438/feed/live
+                                          officialDate: "2021-09-19"
+                                          publicFacing: true
+                                          recordSource: S
+                                          reverseHomeAwayStatus: false
+                                          scheduledInnings: 9
+                                          season: "2021"
+                                          seasonDisplay: "2021"
+                                          seriesDescription: Regular Season
+                                          seriesGameNumber: 3
+                                          status:
+                                            abstractGameCode: F
+                                            abstractGameState: Final
+                                            codedGameState: F
+                                            detailedState: Final
+                                            startTimeTBD: false
+                                            statusCode: F
+                                          teams:
+                                            away:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                            home:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                          tiebreaker: "N"
+                                          venue:
+                                            id: 3309
+                                            link: /api/v1/venues/3309
+                                            name: Nationals Park
+                                      totalEvents: 0
+                                      totalGames: 15
+                                      totalGamesInProgress: 0
+                                      totalItems: 15
+                                    - date: "2021-09-19"
+                                      events:
+                                        - Aliquam odio quis et ratione.
+                                        - Culpa voluptas nemo voluptas eos dolor ex.
+                                        - Placeat nesciunt sit modi.
+                                      games:
+                                        - calendarEventID: 14-632438-2021-09-19
+                                          content:
+                                            link: /api/v1/game/632438/content
+                                          dayNight: day
+                                          doubleHeader: "N"
+                                          gameDate: "2021-09-19T17:05:00Z"
+                                          gameNumber: 1
+                                          gamePk: 632438
+                                          gameType: R
+                                          gamedayType: P
+                                          gamesInSeries: 3
+                                          ifNecessary: "N"
+                                          ifNecessaryDescription: Normal Game
+                                          inningBreakLength: 120
+                                          isTie: false
+                                          link: /api/v1.1/game/632438/feed/live
+                                          officialDate: "2021-09-19"
+                                          publicFacing: true
+                                          recordSource: S
+                                          reverseHomeAwayStatus: false
+                                          scheduledInnings: 9
+                                          season: "2021"
+                                          seasonDisplay: "2021"
+                                          seriesDescription: Regular Season
+                                          seriesGameNumber: 3
+                                          status:
+                                            abstractGameCode: F
+                                            abstractGameState: Final
+                                            codedGameState: F
+                                            detailedState: Final
+                                            startTimeTBD: false
+                                            statusCode: F
+                                          teams:
+                                            away:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                            home:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                          tiebreaker: "N"
+                                          venue:
+                                            id: 3309
+                                            link: /api/v1/venues/3309
+                                            name: Nationals Park
+                                        - calendarEventID: 14-632438-2021-09-19
+                                          content:
+                                            link: /api/v1/game/632438/content
+                                          dayNight: day
+                                          doubleHeader: "N"
+                                          gameDate: "2021-09-19T17:05:00Z"
+                                          gameNumber: 1
+                                          gamePk: 632438
+                                          gameType: R
+                                          gamedayType: P
+                                          gamesInSeries: 3
+                                          ifNecessary: "N"
+                                          ifNecessaryDescription: Normal Game
+                                          inningBreakLength: 120
+                                          isTie: false
+                                          link: /api/v1.1/game/632438/feed/live
+                                          officialDate: "2021-09-19"
+                                          publicFacing: true
+                                          recordSource: S
+                                          reverseHomeAwayStatus: false
+                                          scheduledInnings: 9
+                                          season: "2021"
+                                          seasonDisplay: "2021"
+                                          seriesDescription: Regular Season
+                                          seriesGameNumber: 3
+                                          status:
+                                            abstractGameCode: F
+                                            abstractGameState: Final
+                                            codedGameState: F
+                                            detailedState: Final
+                                            startTimeTBD: false
+                                            statusCode: F
+                                          teams:
+                                            away:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                            home:
+                                                LeagueRecord:
+                                                    losses: 88
+                                                    pct: ".409"
+                                                    wins: 61
+                                                Team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
+                                                isWinner: true
+                                                score: 3
+                                                seriesNumber: 48
+                                                splitSquad: false
+                                          tiebreaker: "N"
+                                          venue:
+                                            id: 3309
+                                            link: /api/v1/venues/3309
+                                            name: Nationals Park
+                                      totalEvents: 0
+                                      totalGames: 15
+                                      totalGamesInProgress: 0
+                                      totalItems: 15
+                                totalEvents: 0
+                                totalGames: 15
+                                totalGamesInProgress: 0
+                                totalItems: 15
+                "400":
+                    description: 'bad_request: Bad Request response.'
+                    content:
+                        application/vnd.goa.error:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+                "404":
+                    description: 'not_found: Not Found response.'
+                    content:
+                        application/vnd.goa.error:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+                "500":
+                    description: 'internal_error: Internal Server Error response.'
+                    content:
+                        application/vnd.goa.error:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+                "502":
+                    description: 'bad_gateway: Bad Gateway response.'
+                    content:
+                        application/vnd.goa.error:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+components:
+    schemas:
+        Content:
+            type: object
+            properties:
+                link:
+                    type: string
+                    description: rest show endpoint to get Content details
+                    example: /api/v1/game/632438/content
+            example:
+                link: /api/v1/game/632438/content
+        Date:
+            type: object
+            properties:
+                date:
+                    type: string
+                    description: official date of the game
+                    example: "2021-09-19"
+                    format: date
+                events:
+                    type: array
+                    items:
+                        type: string
+                        example: Quisquam et qui fuga consequatur.
+                        format: binary
+                    description: list of events on this date
+                    example:
+                        - Sapiente qui facere velit.
+                        - Numquam nesciunt sed ea quasi sed sed.
+                games:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Game'
+                    description: list of games on this date
+                    example:
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                totalEvents:
+                    type: integer
+                    description: total events in a day
+                    example: 0
+                totalGames:
+                    type: integer
+                    description: total games in a day
+                    example: 15
+                totalGamesInProgress:
+                    type: integer
+                    description: total games in progress
+                    example: 0
+                totalItems:
+                    type: integer
+                    description: total items in a day
+                    example: 15
+            example:
+                date: "2021-09-19"
+                events:
+                    - Sint autem unde deserunt.
+                    - Et hic.
+                    - Maiores et.
+                games:
+                    - calendarEventID: 14-632438-2021-09-19
+                      content:
+                        link: /api/v1/game/632438/content
+                      dayNight: day
+                      doubleHeader: "N"
+                      gameDate: "2021-09-19T17:05:00Z"
+                      gameNumber: 1
+                      gamePk: 632438
+                      gameType: R
+                      gamedayType: P
+                      gamesInSeries: 3
+                      ifNecessary: "N"
+                      ifNecessaryDescription: Normal Game
+                      inningBreakLength: 120
+                      isTie: false
+                      link: /api/v1.1/game/632438/feed/live
+                      officialDate: "2021-09-19"
+                      publicFacing: true
+                      recordSource: S
+                      reverseHomeAwayStatus: false
+                      scheduledInnings: 9
+                      season: "2021"
+                      seasonDisplay: "2021"
+                      seriesDescription: Regular Season
+                      seriesGameNumber: 3
+                      status:
+                        abstractGameCode: F
+                        abstractGameState: Final
+                        codedGameState: F
+                        detailedState: Final
+                        startTimeTBD: false
+                        statusCode: F
+                      teams:
+                        away:
+                            LeagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            Team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                            isWinner: true
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                        home:
+                            LeagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            Team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                            isWinner: true
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                      tiebreaker: "N"
+                      venue:
+                        id: 3309
+                        link: /api/v1/venues/3309
+                        name: Nationals Park
+                    - calendarEventID: 14-632438-2021-09-19
+                      content:
+                        link: /api/v1/game/632438/content
+                      dayNight: day
+                      doubleHeader: "N"
+                      gameDate: "2021-09-19T17:05:00Z"
+                      gameNumber: 1
+                      gamePk: 632438
+                      gameType: R
+                      gamedayType: P
+                      gamesInSeries: 3
+                      ifNecessary: "N"
+                      ifNecessaryDescription: Normal Game
+                      inningBreakLength: 120
+                      isTie: false
+                      link: /api/v1.1/game/632438/feed/live
+                      officialDate: "2021-09-19"
+                      publicFacing: true
+                      recordSource: S
+                      reverseHomeAwayStatus: false
+                      scheduledInnings: 9
+                      season: "2021"
+                      seasonDisplay: "2021"
+                      seriesDescription: Regular Season
+                      seriesGameNumber: 3
+                      status:
+                        abstractGameCode: F
+                        abstractGameState: Final
+                        codedGameState: F
+                        detailedState: Final
+                        startTimeTBD: false
+                        statusCode: F
+                      teams:
+                        away:
+                            LeagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            Team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                            isWinner: true
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                        home:
+                            LeagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            Team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                            isWinner: true
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                      tiebreaker: "N"
+                      venue:
+                        id: 3309
+                        link: /api/v1/venues/3309
+                        name: Nationals Park
+                totalEvents: 0
+                totalGames: 15
+                totalGamesInProgress: 0
+                totalItems: 15
+        Error:
+            type: object
+            properties:
+                fault:
+                    type: boolean
+                    description: Is the error a server-side fault?
+                    example: false
+                id:
+                    type: string
+                    description: ID is a unique identifier for this particular occurrence of the problem.
+                    example: 123abc
+                message:
+                    type: string
+                    description: Message is a human-readable explanation specific to this occurrence of the problem.
+                    example: parameter 'p' must be an integer
+                name:
+                    type: string
+                    description: Name is the name of this class of errors.
+                    example: bad_request
+                temporary:
+                    type: boolean
+                    description: Is the error temporary?
+                    example: false
+                timeout:
+                    type: boolean
+                    description: Is the error a timeout?
+                    example: false
+            example:
+                id: 3F1FKVRR
+                message: Value of ID must be an integer
+                name: bad_request
+            required:
+                - name
+                - id
+                - message
+                - temporary
+                - timeout
+                - fault
+        Game:
+            type: object
+            properties:
+                calendarEventID:
+                    type: string
+                    description: game calender event id
+                    example: 14-632438-2021-09-19
+                content:
+                    $ref: '#/components/schemas/Content'
+                dayNight:
+                    type: string
+                    description: is game day or night
+                    example: day
+                doubleHeader:
+                    type: string
+                    description: double header situation
+                    example: "N"
+                gameDate:
+                    type: string
+                    description: date of the game
+                    example: "2021-09-19T17:05:00Z"
+                    format: date-time
+                gameNumber:
+                    type: integer
+                    description: game number
+                    example: 1
+                gamePk:
+                    type: integer
+                    description: Unique identifier for the game
+                    example: 632438
+                gameType:
+                    type: string
+                    description: type of the game
+                    example: R
+                gamedayType:
+                    type: string
+                    description: type of the game day
+                    example: P
+                gamesInSeries:
+                    type: integer
+                    description: game In series
+                    example: 3
+                ifNecessary:
+                    type: string
+                    description: is necessary
+                    example: "N"
+                ifNecessaryDescription:
+                    type: string
+                    description: description of the game
+                    example: Normal Game
+                inningBreakLength:
+                    type: integer
+                    description: inning Break Length of the game
+                    example: 120
+                isTie:
+                    type: boolean
+                    description: is it tie game
+                    example: false
+                link:
+                    type: string
+                    description: live feed link for the game
+                    example: /api/v1.1/game/632438/feed/live
+                officialDate:
+                    type: string
+                    description: official date of the game
+                    example: "2021-09-19"
+                    format: date
+                publicFacing:
+                    type: boolean
+                    description: is game public facing
+                    example: true
+                recordSource:
+                    type: string
+                    description: record source of the game
+                    example: S
+                reverseHomeAwayStatus:
+                    type: boolean
+                    description: reverse home status of the game
+                    example: false
+                scheduledInnings:
+                    type: integer
+                    description: scheduled innings of the game
+                    example: 9
+                season:
+                    type: string
+                    description: season of the game
+                    example: "2021"
+                seasonDisplay:
+                    type: string
+                    description: game season display
+                    example: "2021"
+                seriesDescription:
+                    type: string
+                    description: series description of the game
+                    example: Regular Season
+                seriesGameNumber:
+                    type: integer
+                    description: series Number of the game
+                    example: 3
+                status:
+                    $ref: '#/components/schemas/Status'
+                teams:
+                    $ref: '#/components/schemas/Teams'
+                tiebreaker:
+                    type: string
+                    description: tie breaker
+                    example: "N"
+                venue:
+                    $ref: '#/components/schemas/Team'
+            example:
+                calendarEventID: 14-632438-2021-09-19
+                content:
+                    link: /api/v1/game/632438/content
+                dayNight: day
+                doubleHeader: "N"
+                gameDate: "2021-09-19T17:05:00Z"
+                gameNumber: 1
+                gamePk: 632438
+                gameType: R
+                gamedayType: P
+                gamesInSeries: 3
+                ifNecessary: "N"
+                ifNecessaryDescription: Normal Game
+                inningBreakLength: 120
+                isTie: false
+                link: /api/v1.1/game/632438/feed/live
+                officialDate: "2021-09-19"
+                publicFacing: true
+                recordSource: S
+                reverseHomeAwayStatus: false
+                scheduledInnings: 9
+                season: "2021"
+                seasonDisplay: "2021"
+                seriesDescription: Regular Season
+                seriesGameNumber: 3
+                status:
+                    abstractGameCode: F
+                    abstractGameState: Final
+                    codedGameState: F
+                    detailedState: Final
+                    startTimeTBD: false
+                    statusCode: F
+                teams:
+                    away:
+                        LeagueRecord:
+                            losses: 88
+                            pct: ".409"
+                            wins: 61
+                        Team:
+                            id: 120
+                            link: /api/v1/teams/120
+                            name: Washington Nationals
+                        isWinner: true
+                        score: 3
+                        seriesNumber: 48
+                        splitSquad: false
+                    home:
+                        LeagueRecord:
+                            losses: 88
+                            pct: ".409"
+                            wins: 61
+                        Team:
+                            id: 120
+                            link: /api/v1/teams/120
+                            name: Washington Nationals
+                        isWinner: true
+                        score: 3
+                        seriesNumber: 48
+                        splitSquad: false
+                tiebreaker: "N"
+                venue:
+                    id: 3309
+                    link: /api/v1/venues/3309
+                    name: Nationals Park
+        IndexRequestBody:
+            type: object
+            properties:
+                date:
+                    type: string
+                    description: The date (YYYY-mm-dd) used to get all games scheduled on that day
+                    example: "2022-08-10"
+                    format: date
+            example:
+                date: "2022-08-10"
+            required:
+                - date
+        LeagueRecord:
+            type: object
+            properties:
+                losses:
+                    type: integer
+                    description: Number of losses
+                    example: 88
+                pct:
+                    type: string
+                    description: win percentage. no of wins/total no of matches
+                    example: ".409"
+                wins:
+                    type: integer
+                    description: Number of wins
+                    example: 61
+            example:
+                losses: 88
+                pct: ".409"
+                wins: 61
+        Schedule:
+            type: object
+            properties:
+                copyright:
+                    type: string
+                    description: mlb copyright for this service.
+                    example: Minima sequi sapiente.
+                dates:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Date'
+                    description: List of dates with detailed schedule of games.
+                    example:
+                        - date: "2021-09-19"
+                          events:
+                            - Aliquam odio quis et ratione.
+                            - Culpa voluptas nemo voluptas eos dolor ex.
+                            - Placeat nesciunt sit modi.
+                          games:
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                          totalEvents: 0
+                          totalGames: 15
+                          totalGamesInProgress: 0
+                          totalItems: 15
+                        - date: "2021-09-19"
+                          events:
+                            - Aliquam odio quis et ratione.
+                            - Culpa voluptas nemo voluptas eos dolor ex.
+                            - Placeat nesciunt sit modi.
+                          games:
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                          totalEvents: 0
+                          totalGames: 15
+                          totalGamesInProgress: 0
+                          totalItems: 15
+                        - date: "2021-09-19"
+                          events:
+                            - Aliquam odio quis et ratione.
+                            - Culpa voluptas nemo voluptas eos dolor ex.
+                            - Placeat nesciunt sit modi.
+                          games:
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                          totalEvents: 0
+                          totalGames: 15
+                          totalGamesInProgress: 0
+                          totalItems: 15
+                        - date: "2021-09-19"
+                          events:
+                            - Aliquam odio quis et ratione.
+                            - Culpa voluptas nemo voluptas eos dolor ex.
+                            - Placeat nesciunt sit modi.
+                          games:
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                home:
+                                    LeagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    Team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                    isWinner: true
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                          totalEvents: 0
+                          totalGames: 15
+                          totalGamesInProgress: 0
+                          totalItems: 15
+                totalEvents:
+                    type: integer
+                    description: total events in a day
+                    example: 0
+                totalGames:
+                    type: integer
+                    description: total games in a day
+                    example: 15
+                totalGamesInProgress:
+                    type: integer
+                    description: total games in progress
+                    example: 0
+                totalItems:
+                    type: integer
+                    description: total items in a day
+                    example: 15
+            example:
+                copyright: Rerum in exercitationem error.
+                dates:
+                    - date: "2021-09-19"
+                      events:
+                        - Aliquam odio quis et ratione.
+                        - Culpa voluptas nemo voluptas eos dolor ex.
+                        - Placeat nesciunt sit modi.
+                      games:
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                      totalEvents: 0
+                      totalGames: 15
+                      totalGamesInProgress: 0
+                      totalItems: 15
+                    - date: "2021-09-19"
+                      events:
+                        - Aliquam odio quis et ratione.
+                        - Culpa voluptas nemo voluptas eos dolor ex.
+                        - Placeat nesciunt sit modi.
+                      games:
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                      totalEvents: 0
+                      totalGames: 15
+                      totalGamesInProgress: 0
+                      totalItems: 15
+                    - date: "2021-09-19"
+                      events:
+                        - Aliquam odio quis et ratione.
+                        - Culpa voluptas nemo voluptas eos dolor ex.
+                        - Placeat nesciunt sit modi.
+                      games:
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                            home:
+                                LeagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                Team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                                isWinner: true
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                      totalEvents: 0
+                      totalGames: 15
+                      totalGamesInProgress: 0
+                      totalItems: 15
+                totalEvents: 0
+                totalGames: 15
+                totalGamesInProgress: 0
+                totalItems: 15
+        Status:
+            type: object
+            properties:
+                abstractGameCode:
+                    type: string
+                    description: abstract code of the game
+                    example: F
+                abstractGameState:
+                    type: string
+                    description: abstract state of the game
+                    example: Final
+                codedGameState:
+                    type: string
+                    description: coded game of the game
+                    example: F
+                detailedState:
+                    type: string
+                    description: detailed state of the game
+                    example: Final
+                startTimeTBD:
+                    type: boolean
+                    description: start time to be determined for this game
+                    example: false
+                statusCode:
+                    type: string
+                    description: status code of the game
+                    example: F
+            example:
+                abstractGameCode: F
+                abstractGameState: Final
+                codedGameState: F
+                detailedState: Final
+                startTimeTBD: false
+                statusCode: F
+        Team:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    description: unique team identifier
+                    example: 120
+                link:
+                    type: string
+                    description: rest show endpoint to get team details
+                    example: /api/v1/teams/120
+                name:
+                    type: string
+                    description: team name
+                    example: Washington Nationals
+            example:
+                id: 120
+                link: /api/v1/teams/120
+                name: Washington Nationals
+        TeamInfo:
+            type: object
+            properties:
+                LeagueRecord:
+                    $ref: '#/components/schemas/LeagueRecord'
+                Team:
+                    $ref: '#/components/schemas/Team'
+                isWinner:
+                    type: boolean
+                    description: is this team won this game
+                    example: true
+                score:
+                    type: integer
+                    description: score of the team
+                    example: 3
+                seriesNumber:
+                    type: integer
+                    description: seriesNumber for the team
+                    example: 48
+                splitSquad:
+                    type: boolean
+                    description: splitSquad for the team
+                    example: false
+            example:
+                LeagueRecord:
+                    losses: 88
+                    pct: ".409"
+                    wins: 61
+                Team:
+                    id: 120
+                    link: /api/v1/teams/120
+                    name: Washington Nationals
+                isWinner: true
+                score: 3
+                seriesNumber: 48
+                splitSquad: false
+        Teams:
+            type: object
+            properties:
+                away:
+                    $ref: '#/components/schemas/TeamInfo'
+                home:
+                    $ref: '#/components/schemas/TeamInfo'
+            example:
+                away:
+                    LeagueRecord:
+                        losses: 88
+                        pct: ".409"
+                        wins: 61
+                    Team:
+                        id: 120
+                        link: /api/v1/teams/120
+                        name: Washington Nationals
+                    isWinner: true
+                    score: 3
+                    seriesNumber: 48
+                    splitSquad: false
+                home:
+                    LeagueRecord:
+                        losses: 88
+                        pct: ".409"
+                        wins: 61
+                    Team:
+                        id: 120
+                        link: /api/v1/teams/120
+                        name: Washington Nationals
+                    isWinner: true
+                    score: 3
+                    seriesNumber: 48
+                    splitSquad: false
+tags:
+    - name: Scheduler
+      description: Scheduler service acts as a single source of truth for consumers to get a custom sorted schedule of games.

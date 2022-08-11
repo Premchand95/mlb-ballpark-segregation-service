@@ -13,10 +13,10 @@ var _ = Service("Scheduler", func() {
 		Response("bad_request", StatusBadRequest)
 		Response("not_found", StatusNotFound)
 	})
-	Error("internal_error", StatusInternalServerError)
-	Error("bad_gateway", StatusBadGateway)
-	Error("bad_request", StatusBadRequest)
-	Error("not_found", StatusNotFound)
+	Error("internal_error")
+	Error("bad_gateway")
+	Error("bad_request")
+	Error("not_found")
 
 	Method("index", func() {
 		Meta("swagger:summary", `Retrieve a schedule of games`)
