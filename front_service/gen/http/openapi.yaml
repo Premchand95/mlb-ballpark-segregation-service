@@ -21,18 +21,17 @@ paths:
             description: Retrieves a schedule of games
             operationId: Scheduler#index
             parameters:
+                - name: date
+                  in: query
+                  description: The date (YYYY-mm-dd) used to get all games scheduled on that day
+                  required: true
+                  type: string
+                  format: date
                 - name: id
                   in: path
                   description: The unique identifier of the team
                   required: true
                   type: integer
-                - name: IndexRequestBody
-                  in: body
-                  required: true
-                  schema:
-                    $ref: '#/definitions/SchedulerIndexRequestBody'
-                    required:
-                        - date
             responses:
                 "200":
                     description: OK response.
@@ -819,19 +818,6 @@ definitions:
             - temporary
             - timeout
             - fault
-    SchedulerIndexRequestBody:
-        title: SchedulerIndexRequestBody
-        type: object
-        properties:
-            date:
-                type: string
-                description: The date (YYYY-mm-dd) used to get all games scheduled on that day
-                example: "2022-08-10"
-                format: date
-        example:
-            date: "2022-08-10"
-        required:
-            - date
     SchedulerIndexResponseBody:
         title: 'Mediatype identifier: application/mlb.schedule; view=default'
         type: object

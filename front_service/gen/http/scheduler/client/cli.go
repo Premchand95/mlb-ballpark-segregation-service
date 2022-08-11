@@ -9,7 +9,6 @@
 package client
 
 import (
-	"encoding/json"
 	"fmt"
 	"strconv"
 
@@ -19,20 +18,8 @@ import (
 
 // BuildIndexPayload builds the payload for the Scheduler index endpoint from
 // CLI flags.
-func BuildIndexPayload(schedulerIndexBody string, schedulerIndexID string) (*scheduler.IndexPayload, error) {
+func BuildIndexPayload(schedulerIndexID string, schedulerIndexDate string) (*scheduler.IndexPayload, error) {
 	var err error
-	var body IndexRequestBody
-	{
-		err = json.Unmarshal([]byte(schedulerIndexBody), &body)
-		if err != nil {
-			return nil, fmt.Errorf("invalid JSON for body, \nerror: %s, \nexample of valid JSON:\n%s", err, "'{\n      \"date\": \"2022-08-10\"\n   }'")
-		}
-		err = goa.MergeErrors(err, goa.ValidateFormat("body.date", body.Date, goa.FormatDate))
-
-		if err != nil {
-			return nil, err
-		}
-	}
 	var id uint
 	{
 		var v uint64
@@ -42,10 +29,18 @@ func BuildIndexPayload(schedulerIndexBody string, schedulerIndexID string) (*sch
 			return nil, fmt.Errorf("invalid value for id, must be UINT")
 		}
 	}
-	v := &scheduler.IndexPayload{
-		Date: body.Date,
+	var date string
+	{
+		date = schedulerIndexDate
+		err = goa.MergeErrors(err, goa.ValidateFormat("date", date, goa.FormatDate))
+
+		if err != nil {
+			return nil, err
+		}
 	}
+	v := &scheduler.IndexPayload{}
 	v.ID = id
+	v.Date = date
 
 	return v, nil
 }

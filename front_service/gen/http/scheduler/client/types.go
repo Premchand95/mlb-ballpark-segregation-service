@@ -9,17 +9,9 @@
 package client
 
 import (
-	scheduler "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler"
 	schedulerviews "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler/views"
 	goa "goa.design/goa/v3/pkg"
 )
-
-// IndexRequestBody is the type of the "Scheduler" service "index" endpoint
-// HTTP request body.
-type IndexRequestBody struct {
-	// The date (YYYY-mm-dd) used to get all games scheduled on that day
-	Date string `form:"date" json:"date" xml:"date"`
-}
 
 // IndexResponseBody is the type of the "Scheduler" service "index" endpoint
 // HTTP response body.
@@ -262,15 +254,6 @@ type VenueResponseBody struct {
 type ContentResponseBody struct {
 	// rest show endpoint to get Content details
 	Link *string `form:"link,omitempty" json:"link,omitempty" xml:"link,omitempty"`
-}
-
-// NewIndexRequestBody builds the HTTP request body from the payload of the
-// "index" endpoint of the "Scheduler" service.
-func NewIndexRequestBody(p *scheduler.IndexPayload) *IndexRequestBody {
-	body := &IndexRequestBody{
-		Date: p.Date,
-	}
-	return body
 }
 
 // NewIndexScheduleOK builds a "Scheduler" service "index" endpoint result from

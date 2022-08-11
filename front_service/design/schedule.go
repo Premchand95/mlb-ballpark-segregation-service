@@ -37,6 +37,7 @@ var _ = Service("Scheduler", func() {
 		Result(Schedule)
 		HTTP(func() {
 			GET("/schedule")
+			Param("date")
 			Response(StatusOK)
 		})
 	})

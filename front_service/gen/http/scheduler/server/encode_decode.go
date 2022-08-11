@@ -11,7 +11,6 @@ package server
 import (
 	"context"
 	"errors"
-	"io"
 	"net/http"
 	"strconv"
 
@@ -37,23 +36,9 @@ func EncodeIndexResponse(encoder func(context.Context, http.ResponseWriter) goah
 func DecodeIndexRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.Decoder) func(*http.Request) (interface{}, error) {
 	return func(r *http.Request) (interface{}, error) {
 		var (
-			body IndexRequestBody
+			id   uint
+			date string
 			err  error
-		)
-		err = decoder(r).Decode(&body)
-		if err != nil {
-			if err == io.EOF {
-				return nil, goa.MissingPayloadError()
-			}
-			return nil, goa.DecodePayloadError(err.Error())
-		}
-		err = ValidateIndexRequestBody(&body)
-		if err != nil {
-			return nil, err
-		}
-
-		var (
-			id uint
 
 			params = mux.Vars(r)
 		)
@@ -65,10 +50,16 @@ func DecodeIndexRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.D
 			}
 			id = uint(v)
 		}
+		date = r.URL.Query().Get("date")
+		if date == "" {
+			err = goa.MergeErrors(err, goa.MissingFieldError("date", "query string"))
+		}
+		err = goa.MergeErrors(err, goa.ValidateFormat("date", date, goa.FormatDate))
+
 		if err != nil {
 			return nil, err
 		}
-		payload := NewIndexPayload(&body, id)
+		payload := NewIndexPayload(id, date)
 
 		return payload, nil
 	}

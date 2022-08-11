@@ -14,13 +14,6 @@ import (
 	goa "goa.design/goa/v3/pkg"
 )
 
-// IndexRequestBody is the type of the "Scheduler" service "index" endpoint
-// HTTP request body.
-type IndexRequestBody struct {
-	// The date (YYYY-mm-dd) used to get all games scheduled on that day
-	Date *string `form:"date,omitempty" json:"date,omitempty" xml:"date,omitempty"`
-}
-
 // IndexResponseBody is the type of the "Scheduler" service "index" endpoint
 // HTTP response body.
 type IndexResponseBody struct {
@@ -340,22 +333,10 @@ func NewIndexNotFoundResponseBody(res *goa.ServiceError) *IndexNotFoundResponseB
 }
 
 // NewIndexPayload builds a Scheduler service index endpoint payload.
-func NewIndexPayload(body *IndexRequestBody, id uint) *scheduler.IndexPayload {
-	v := &scheduler.IndexPayload{
-		Date: *body.Date,
-	}
+func NewIndexPayload(id uint, date string) *scheduler.IndexPayload {
+	v := &scheduler.IndexPayload{}
 	v.ID = id
+	v.Date = date
 
 	return v
-}
-
-// ValidateIndexRequestBody runs the validations defined on IndexRequestBody
-func ValidateIndexRequestBody(body *IndexRequestBody) (err error) {
-	if body.Date == nil {
-		err = goa.MergeErrors(err, goa.MissingFieldError("date", "body"))
-	}
-	if body.Date != nil {
-		err = goa.MergeErrors(err, goa.ValidateFormat("body.date", *body.Date, goa.FormatDate))
-	}
-	return
 }

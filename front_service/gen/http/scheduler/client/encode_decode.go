@@ -53,10 +53,9 @@ func EncodeIndexRequest(encoder func(*http.Request) goahttp.Encoder) func(*http.
 		if !ok {
 			return goahttp.ErrInvalidType("Scheduler", "index", "*scheduler.IndexPayload", v)
 		}
-		body := NewIndexRequestBody(p)
-		if err := encoder(req).Encode(&body); err != nil {
-			return goahttp.ErrEncodingError("Scheduler", "index", err)
-		}
+		values := req.URL.Query()
+		values.Add("date", p.Date)
+		req.URL.RawQuery = values.Encode()
 		return nil
 	}
 }
