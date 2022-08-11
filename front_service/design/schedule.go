@@ -20,7 +20,7 @@ var _ = Service("Scheduler", func() {
 
 	Method("index", func() {
 		Meta("swagger:summary", `Retrieve a schedule of games`)
-		Description(`Retrieves a collection of licenses`)
+		Description(`Retrieves a schedule of games`)
 
 		Payload(func() {
 			Attribute("id", UInt, func() {

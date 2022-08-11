@@ -21,6 +21,10 @@ const (
 var _ = API(ServiceName, func() {
 	Title("MLB BallPark Segregation Service API")
 	Version(fmt.Sprintf("%d.%d.%d", MajorVersion, MinorVersion, PatchVersion))
-
 	Description(`The MLB BallPark Segregation Service API provides REST-ful API to retrieve custom schedules of mlb games`)
+	Server("http", func() {
+		Host("dev", func() {
+			URI("http://localhost:80")
+		})
+	})
 })

@@ -5,14 +5,13 @@ info:
     version: 1.0.0
 servers:
     - url: http://localhost:80
-      description: Default server for MLB BallPark Segregation Service API
 paths:
     /api/v1/teams/{id}/schedule:
         get:
             tags:
                 - Scheduler
             summary: Retrieve a schedule of games
-            description: Retrieves a collection of licenses
+            description: Retrieves a schedule of games
             operationId: Scheduler#index
             parameters:
                 - name: id

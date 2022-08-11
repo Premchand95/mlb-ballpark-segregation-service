@@ -18,7 +18,7 @@ paths:
             tags:
                 - Scheduler
             summary: Retrieve a schedule of games
-            description: Retrieves a collection of licenses
+            description: Retrieves a schedule of games
             operationId: Scheduler#index
             parameters:
                 - name: id

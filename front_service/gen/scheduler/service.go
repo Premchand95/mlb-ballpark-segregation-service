@@ -18,7 +18,7 @@ import (
 // Scheduler service acts as a single source of truth for consumers to get a
 // custom sorted schedule of games.
 type Service interface {
-	// Retrieves a collection of licenses
+	// Retrieves a schedule of games
 	Index(context.Context, *IndexPayload) (res *Schedule, err error)
 }
 
