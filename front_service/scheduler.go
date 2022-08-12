@@ -1,4 +1,4 @@
-package mlbballparksegregationserviceapi
+package front_service
 
 import (
 	"context"
@@ -39,6 +39,37 @@ func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (r
 		s.logger.Print("error", err)
 		return nil, err
 	}
+
+	var games []*scheduler.Game
+
+	if isNotNil(res) {
+		// dates is a required field, so no need to do nil check
+		if len(res.Dates) > 0 {
+			// As we query stats API scheduler with only one date, for now, we assume we only get one date
+			if len(res.Dates[0].Games) > 0 {
+				games = append(games, res.Dates[0].Games...)
+			}
+		}
+	}
+
+	favTeamGames := s.getFavoriteTeamGames(ctx, p.ID, games)
+	//s.logger.Printf(prettyPrint(favTeamGames))
+
+	if len(favTeamGames) == 0 {
+		// there is no games for our fav team on given day, so return response as it is.
+		s.logger.Print("there is no games for our fav team on given day", len(favTeamGames))
+		return res, err
+	}
+
+	if len(favTeamGames) < 2 {
+		index := indexOfGame(games, favTeamGames[0])
+		in := []int{index}
+		games = recursiveRearrange(games, in)
+	}
+
+	res.Dates[0].Games = games
+
+	s.logger.Print("favGames len", len(favTeamGames))
 
 	s.logger.Print("scheduler.index")
 	return
