@@ -177,17 +177,13 @@ func unmarshalDateResponseBodyToSchedulerviewsDateView(v *DateResponseBody) *sch
 		TotalGames:           v.TotalGames,
 		TotalGamesInProgress: v.TotalGamesInProgress,
 	}
-	if v.Games != nil {
-		res.Games = make([]*schedulerviews.GameView, len(v.Games))
-		for i, val := range v.Games {
-			res.Games[i] = unmarshalGameResponseBodyToSchedulerviewsGameView(val)
-		}
+	res.Games = make([]*schedulerviews.GameView, len(v.Games))
+	for i, val := range v.Games {
+		res.Games[i] = unmarshalGameResponseBodyToSchedulerviewsGameView(val)
 	}
-	if v.Events != nil {
-		res.Events = make([]interface{}, len(v.Events))
-		for i, val := range v.Events {
-			res.Events[i] = val
-		}
+	res.Events = make([]interface{}, len(v.Events))
+	for i, val := range v.Events {
+		res.Events[i] = val
 	}
 
 	return res
@@ -196,9 +192,6 @@ func unmarshalDateResponseBodyToSchedulerviewsDateView(v *DateResponseBody) *sch
 // unmarshalGameResponseBodyToSchedulerviewsGameView builds a value of type
 // *schedulerviews.GameView from a value of type *GameResponseBody.
 func unmarshalGameResponseBodyToSchedulerviewsGameView(v *GameResponseBody) *schedulerviews.GameView {
-	if v == nil {
-		return nil
-	}
 	res := &schedulerviews.GameView{
 		GamePk:                 v.GamePk,
 		Link:                   v.Link,

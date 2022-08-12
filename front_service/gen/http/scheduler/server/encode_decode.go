@@ -165,9 +165,6 @@ func marshalSchedulerviewsDateViewToDateResponseBody(v *schedulerviews.DateView)
 // marshalSchedulerviewsGameViewToGameResponseBody builds a value of type
 // *GameResponseBody from a value of type *schedulerviews.GameView.
 func marshalSchedulerviewsGameViewToGameResponseBody(v *schedulerviews.GameView) *GameResponseBody {
-	if v == nil {
-		return nil
-	}
 	res := &GameResponseBody{
 		GamePk:                 v.GamePk,
 		Link:                   v.Link,

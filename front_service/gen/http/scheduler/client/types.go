@@ -215,9 +215,9 @@ type TeamInfoResponseBody struct {
 	// seriesNumber for the team
 	SeriesNumber *uint `form:"seriesNumber,omitempty" json:"seriesNumber,omitempty" xml:"seriesNumber,omitempty"`
 	// leagueRecord of the team
-	LeagueRecord *LeagueRecordResponseBody `form:"LeagueRecord,omitempty" json:"LeagueRecord,omitempty" xml:"LeagueRecord,omitempty"`
+	LeagueRecord *LeagueRecordResponseBody `form:"leagueRecord,omitempty" json:"leagueRecord,omitempty" xml:"leagueRecord,omitempty"`
 	// team basic information
-	Team *TeamResponseBody `form:"Team,omitempty" json:"Team,omitempty" xml:"Team,omitempty"`
+	Team *TeamResponseBody `form:"team,omitempty" json:"team,omitempty" xml:"team,omitempty"`
 }
 
 // LeagueRecordResponseBody is used to define fields on response body types.
@@ -433,6 +433,12 @@ func ValidateIndexNotFoundResponseBody(body *IndexNotFoundResponseBody) (err err
 
 // ValidateDateResponseBody runs the validations defined on DateResponseBody
 func ValidateDateResponseBody(body *DateResponseBody) (err error) {
+	if body.Games == nil {
+		err = goa.MergeErrors(err, goa.MissingFieldError("games", "body"))
+	}
+	if body.Events == nil {
+		err = goa.MergeErrors(err, goa.MissingFieldError("events", "body"))
+	}
 	if body.Date != nil {
 		err = goa.MergeErrors(err, goa.ValidateFormat("body.date", *body.Date, goa.FormatDate))
 	}

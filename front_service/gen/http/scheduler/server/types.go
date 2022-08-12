@@ -116,9 +116,9 @@ type DateResponseBody struct {
 	// total games in progress
 	TotalGamesInProgress *uint `form:"totalGamesInProgress,omitempty" json:"totalGamesInProgress,omitempty" xml:"totalGamesInProgress,omitempty"`
 	// list of games on this date
-	Games []*GameResponseBody `form:"games,omitempty" json:"games,omitempty" xml:"games,omitempty"`
+	Games []*GameResponseBody `form:"games" json:"games" xml:"games"`
 	// list of events on this date
-	Events []interface{} `form:"events,omitempty" json:"events,omitempty" xml:"events,omitempty"`
+	Events []interface{} `form:"events" json:"events" xml:"events"`
 }
 
 // GameResponseBody is used to define fields on response body types.
@@ -216,9 +216,9 @@ type TeamInfoResponseBody struct {
 	// seriesNumber for the team
 	SeriesNumber *uint `form:"seriesNumber,omitempty" json:"seriesNumber,omitempty" xml:"seriesNumber,omitempty"`
 	// leagueRecord of the team
-	LeagueRecord *LeagueRecordResponseBody `form:"LeagueRecord,omitempty" json:"LeagueRecord,omitempty" xml:"LeagueRecord,omitempty"`
+	LeagueRecord *LeagueRecordResponseBody `form:"leagueRecord,omitempty" json:"leagueRecord,omitempty" xml:"leagueRecord,omitempty"`
 	// team basic information
-	Team *TeamResponseBody `form:"Team,omitempty" json:"Team,omitempty" xml:"Team,omitempty"`
+	Team *TeamResponseBody `form:"team,omitempty" json:"team,omitempty" xml:"team,omitempty"`
 }
 
 // LeagueRecordResponseBody is used to define fields on response body types.

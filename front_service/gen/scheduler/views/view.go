@@ -231,6 +231,12 @@ func ValidateScheduleView(result *ScheduleView) (err error) {
 
 // ValidateDateView runs the validations defined on DateView.
 func ValidateDateView(result *DateView) (err error) {
+	if result.Games == nil {
+		err = goa.MergeErrors(err, goa.MissingFieldError("games", "result"))
+	}
+	if result.Events == nil {
+		err = goa.MergeErrors(err, goa.MissingFieldError("events", "result"))
+	}
 	if result.Date != nil {
 		err = goa.MergeErrors(err, goa.ValidateFormat("result.date", *result.Date, goa.FormatDate))
 	}

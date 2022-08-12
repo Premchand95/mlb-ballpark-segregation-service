@@ -85,31 +85,31 @@ paths:
                                             statusCode: F
                                           teams:
                                             away:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                             home:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                           tiebreaker: "N"
                                           venue:
                                             id: 3309
@@ -149,31 +149,31 @@ paths:
                                             statusCode: F
                                           teams:
                                             away:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                             home:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                           tiebreaker: "N"
                                           venue:
                                             id: 3309
@@ -223,31 +223,31 @@ paths:
                                             statusCode: F
                                           teams:
                                             away:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                             home:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                           tiebreaker: "N"
                                           venue:
                                             id: 3309
@@ -287,31 +287,31 @@ paths:
                                             statusCode: F
                                           teams:
                                             away:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                             home:
-                                                LeagueRecord:
+                                                isWinner: true
+                                                leagueRecord:
                                                     losses: 88
                                                     pct: ".409"
                                                     wins: 61
-                                                Team:
-                                                    id: 120
-                                                    link: /api/v1/teams/120
-                                                    name: Washington Nationals
-                                                isWinner: true
                                                 score: 3
                                                 seriesNumber: 48
                                                 splitSquad: false
+                                                team:
+                                                    id: 120
+                                                    link: /api/v1/teams/120
+                                                    name: Washington Nationals
                                           tiebreaker: "N"
                                           venue:
                                             id: 3309
@@ -418,31 +418,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -482,31 +482,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -546,31 +546,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -610,31 +610,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -697,31 +697,31 @@ components:
                         statusCode: F
                       teams:
                         away:
-                            LeagueRecord:
+                            isWinner: true
+                            leagueRecord:
                                 losses: 88
                                 pct: ".409"
                                 wins: 61
-                            Team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                            isWinner: true
                             score: 3
                             seriesNumber: 48
                             splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
                         home:
-                            LeagueRecord:
+                            isWinner: true
+                            leagueRecord:
                                 losses: 88
                                 pct: ".409"
                                 wins: 61
-                            Team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                            isWinner: true
                             score: 3
                             seriesNumber: 48
                             splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
                       tiebreaker: "N"
                       venue:
                         id: 3309
@@ -761,31 +761,31 @@ components:
                         statusCode: F
                       teams:
                         away:
-                            LeagueRecord:
+                            isWinner: true
+                            leagueRecord:
                                 losses: 88
                                 pct: ".409"
                                 wins: 61
-                            Team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                            isWinner: true
                             score: 3
                             seriesNumber: 48
                             splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
                         home:
-                            LeagueRecord:
+                            isWinner: true
+                            leagueRecord:
                                 losses: 88
                                 pct: ".409"
                                 wins: 61
-                            Team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                            isWinner: true
                             score: 3
                             seriesNumber: 48
                             splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
                       tiebreaker: "N"
                       venue:
                         id: 3309
@@ -795,6 +795,9 @@ components:
                 totalGames: 15
                 totalGamesInProgress: 0
                 totalItems: 15
+            required:
+                - games
+                - events
         Error:
             type: object
             properties:
@@ -977,31 +980,31 @@ components:
                     statusCode: F
                 teams:
                     away:
-                        LeagueRecord:
+                        isWinner: true
+                        leagueRecord:
                             losses: 88
                             pct: ".409"
                             wins: 61
-                        Team:
-                            id: 120
-                            link: /api/v1/teams/120
-                            name: Washington Nationals
-                        isWinner: true
                         score: 3
                         seriesNumber: 48
                         splitSquad: false
+                        team:
+                            id: 120
+                            link: /api/v1/teams/120
+                            name: Washington Nationals
                     home:
-                        LeagueRecord:
+                        isWinner: true
+                        leagueRecord:
                             losses: 88
                             pct: ".409"
                             wins: 61
-                        Team:
-                            id: 120
-                            link: /api/v1/teams/120
-                            name: Washington Nationals
-                        isWinner: true
                         score: 3
                         seriesNumber: 48
                         splitSquad: false
+                        team:
+                            id: 120
+                            link: /api/v1/teams/120
+                            name: Washington Nationals
                 tiebreaker: "N"
                 venue:
                     id: 3309
@@ -1079,31 +1082,31 @@ components:
                                 statusCode: F
                               teams:
                                 away:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                                 home:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                               tiebreaker: "N"
                               venue:
                                 id: 3309
@@ -1143,169 +1146,31 @@ components:
                                 statusCode: F
                               teams:
                                 away:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                                 home:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
-                              tiebreaker: "N"
-                              venue:
-                                id: 3309
-                                link: /api/v1/venues/3309
-                                name: Nationals Park
-                          totalEvents: 0
-                          totalGames: 15
-                          totalGamesInProgress: 0
-                          totalItems: 15
-                        - date: "2021-09-19"
-                          events:
-                            - Aliquam odio quis et ratione.
-                            - Culpa voluptas nemo voluptas eos dolor ex.
-                            - Placeat nesciunt sit modi.
-                          games:
-                            - calendarEventID: 14-632438-2021-09-19
-                              content:
-                                link: /api/v1/game/632438/content
-                              dayNight: day
-                              doubleHeader: "N"
-                              gameDate: "2021-09-19T17:05:00Z"
-                              gameNumber: 1
-                              gamePk: 632438
-                              gameType: R
-                              gamedayType: P
-                              gamesInSeries: 3
-                              ifNecessary: "N"
-                              ifNecessaryDescription: Normal Game
-                              inningBreakLength: 120
-                              isTie: false
-                              link: /api/v1.1/game/632438/feed/live
-                              officialDate: "2021-09-19"
-                              publicFacing: true
-                              recordSource: S
-                              reverseHomeAwayStatus: false
-                              scheduledInnings: 9
-                              season: "2021"
-                              seasonDisplay: "2021"
-                              seriesDescription: Regular Season
-                              seriesGameNumber: 3
-                              status:
-                                abstractGameCode: F
-                                abstractGameState: Final
-                                codedGameState: F
-                                detailedState: Final
-                                startTimeTBD: false
-                                statusCode: F
-                              teams:
-                                away:
-                                    LeagueRecord:
-                                        losses: 88
-                                        pct: ".409"
-                                        wins: 61
-                                    Team:
+                                    team:
                                         id: 120
                                         link: /api/v1/teams/120
                                         name: Washington Nationals
-                                    isWinner: true
-                                    score: 3
-                                    seriesNumber: 48
-                                    splitSquad: false
-                                home:
-                                    LeagueRecord:
-                                        losses: 88
-                                        pct: ".409"
-                                        wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
-                                    score: 3
-                                    seriesNumber: 48
-                                    splitSquad: false
-                              tiebreaker: "N"
-                              venue:
-                                id: 3309
-                                link: /api/v1/venues/3309
-                                name: Nationals Park
-                            - calendarEventID: 14-632438-2021-09-19
-                              content:
-                                link: /api/v1/game/632438/content
-                              dayNight: day
-                              doubleHeader: "N"
-                              gameDate: "2021-09-19T17:05:00Z"
-                              gameNumber: 1
-                              gamePk: 632438
-                              gameType: R
-                              gamedayType: P
-                              gamesInSeries: 3
-                              ifNecessary: "N"
-                              ifNecessaryDescription: Normal Game
-                              inningBreakLength: 120
-                              isTie: false
-                              link: /api/v1.1/game/632438/feed/live
-                              officialDate: "2021-09-19"
-                              publicFacing: true
-                              recordSource: S
-                              reverseHomeAwayStatus: false
-                              scheduledInnings: 9
-                              season: "2021"
-                              seasonDisplay: "2021"
-                              seriesDescription: Regular Season
-                              seriesGameNumber: 3
-                              status:
-                                abstractGameCode: F
-                                abstractGameState: Final
-                                codedGameState: F
-                                detailedState: Final
-                                startTimeTBD: false
-                                statusCode: F
-                              teams:
-                                away:
-                                    LeagueRecord:
-                                        losses: 88
-                                        pct: ".409"
-                                        wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
-                                    score: 3
-                                    seriesNumber: 48
-                                    splitSquad: false
-                                home:
-                                    LeagueRecord:
-                                        losses: 88
-                                        pct: ".409"
-                                        wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
-                                    score: 3
-                                    seriesNumber: 48
-                                    splitSquad: false
                               tiebreaker: "N"
                               venue:
                                 id: 3309
@@ -1355,31 +1220,31 @@ components:
                                 statusCode: F
                               teams:
                                 away:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                                 home:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                               tiebreaker: "N"
                               venue:
                                 id: 3309
@@ -1419,31 +1284,31 @@ components:
                                 statusCode: F
                               teams:
                                 away:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                                 home:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                               tiebreaker: "N"
                               venue:
                                 id: 3309
@@ -1493,31 +1358,31 @@ components:
                                 statusCode: F
                               teams:
                                 away:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                                 home:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                               tiebreaker: "N"
                               venue:
                                 id: 3309
@@ -1557,31 +1422,169 @@ components:
                                 statusCode: F
                               teams:
                                 away:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                                 home:
-                                    LeagueRecord:
+                                    isWinner: true
+                                    leagueRecord:
                                         losses: 88
                                         pct: ".409"
                                         wins: 61
-                                    Team:
-                                        id: 120
-                                        link: /api/v1/teams/120
-                                        name: Washington Nationals
-                                    isWinner: true
                                     score: 3
                                     seriesNumber: 48
                                     splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                          totalEvents: 0
+                          totalGames: 15
+                          totalGamesInProgress: 0
+                          totalItems: 15
+                        - date: "2021-09-19"
+                          events:
+                            - Aliquam odio quis et ratione.
+                            - Culpa voluptas nemo voluptas eos dolor ex.
+                            - Placeat nesciunt sit modi.
+                          games:
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    isWinner: true
+                                    leagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                home:
+                                    isWinner: true
+                                    leagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                              tiebreaker: "N"
+                              venue:
+                                id: 3309
+                                link: /api/v1/venues/3309
+                                name: Nationals Park
+                            - calendarEventID: 14-632438-2021-09-19
+                              content:
+                                link: /api/v1/game/632438/content
+                              dayNight: day
+                              doubleHeader: "N"
+                              gameDate: "2021-09-19T17:05:00Z"
+                              gameNumber: 1
+                              gamePk: 632438
+                              gameType: R
+                              gamedayType: P
+                              gamesInSeries: 3
+                              ifNecessary: "N"
+                              ifNecessaryDescription: Normal Game
+                              inningBreakLength: 120
+                              isTie: false
+                              link: /api/v1.1/game/632438/feed/live
+                              officialDate: "2021-09-19"
+                              publicFacing: true
+                              recordSource: S
+                              reverseHomeAwayStatus: false
+                              scheduledInnings: 9
+                              season: "2021"
+                              seasonDisplay: "2021"
+                              seriesDescription: Regular Season
+                              seriesGameNumber: 3
+                              status:
+                                abstractGameCode: F
+                                abstractGameState: Final
+                                codedGameState: F
+                                detailedState: Final
+                                startTimeTBD: false
+                                statusCode: F
+                              teams:
+                                away:
+                                    isWinner: true
+                                    leagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
+                                home:
+                                    isWinner: true
+                                    leagueRecord:
+                                        losses: 88
+                                        pct: ".409"
+                                        wins: 61
+                                    score: 3
+                                    seriesNumber: 48
+                                    splitSquad: false
+                                    team:
+                                        id: 120
+                                        link: /api/v1/teams/120
+                                        name: Washington Nationals
                               tiebreaker: "N"
                               venue:
                                 id: 3309
@@ -1650,31 +1653,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -1714,169 +1717,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
-                          tiebreaker: "N"
-                          venue:
-                            id: 3309
-                            link: /api/v1/venues/3309
-                            name: Nationals Park
-                      totalEvents: 0
-                      totalGames: 15
-                      totalGamesInProgress: 0
-                      totalItems: 15
-                    - date: "2021-09-19"
-                      events:
-                        - Aliquam odio quis et ratione.
-                        - Culpa voluptas nemo voluptas eos dolor ex.
-                        - Placeat nesciunt sit modi.
-                      games:
-                        - calendarEventID: 14-632438-2021-09-19
-                          content:
-                            link: /api/v1/game/632438/content
-                          dayNight: day
-                          doubleHeader: "N"
-                          gameDate: "2021-09-19T17:05:00Z"
-                          gameNumber: 1
-                          gamePk: 632438
-                          gameType: R
-                          gamedayType: P
-                          gamesInSeries: 3
-                          ifNecessary: "N"
-                          ifNecessaryDescription: Normal Game
-                          inningBreakLength: 120
-                          isTie: false
-                          link: /api/v1.1/game/632438/feed/live
-                          officialDate: "2021-09-19"
-                          publicFacing: true
-                          recordSource: S
-                          reverseHomeAwayStatus: false
-                          scheduledInnings: 9
-                          season: "2021"
-                          seasonDisplay: "2021"
-                          seriesDescription: Regular Season
-                          seriesGameNumber: 3
-                          status:
-                            abstractGameCode: F
-                            abstractGameState: Final
-                            codedGameState: F
-                            detailedState: Final
-                            startTimeTBD: false
-                            statusCode: F
-                          teams:
-                            away:
-                                LeagueRecord:
-                                    losses: 88
-                                    pct: ".409"
-                                    wins: 61
-                                Team:
+                                team:
                                     id: 120
                                     link: /api/v1/teams/120
                                     name: Washington Nationals
-                                isWinner: true
-                                score: 3
-                                seriesNumber: 48
-                                splitSquad: false
-                            home:
-                                LeagueRecord:
-                                    losses: 88
-                                    pct: ".409"
-                                    wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
-                                score: 3
-                                seriesNumber: 48
-                                splitSquad: false
-                          tiebreaker: "N"
-                          venue:
-                            id: 3309
-                            link: /api/v1/venues/3309
-                            name: Nationals Park
-                        - calendarEventID: 14-632438-2021-09-19
-                          content:
-                            link: /api/v1/game/632438/content
-                          dayNight: day
-                          doubleHeader: "N"
-                          gameDate: "2021-09-19T17:05:00Z"
-                          gameNumber: 1
-                          gamePk: 632438
-                          gameType: R
-                          gamedayType: P
-                          gamesInSeries: 3
-                          ifNecessary: "N"
-                          ifNecessaryDescription: Normal Game
-                          inningBreakLength: 120
-                          isTie: false
-                          link: /api/v1.1/game/632438/feed/live
-                          officialDate: "2021-09-19"
-                          publicFacing: true
-                          recordSource: S
-                          reverseHomeAwayStatus: false
-                          scheduledInnings: 9
-                          season: "2021"
-                          seasonDisplay: "2021"
-                          seriesDescription: Regular Season
-                          seriesGameNumber: 3
-                          status:
-                            abstractGameCode: F
-                            abstractGameState: Final
-                            codedGameState: F
-                            detailedState: Final
-                            startTimeTBD: false
-                            statusCode: F
-                          teams:
-                            away:
-                                LeagueRecord:
-                                    losses: 88
-                                    pct: ".409"
-                                    wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
-                                score: 3
-                                seriesNumber: 48
-                                splitSquad: false
-                            home:
-                                LeagueRecord:
-                                    losses: 88
-                                    pct: ".409"
-                                    wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
-                                score: 3
-                                seriesNumber: 48
-                                splitSquad: false
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -1926,31 +1791,31 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -1990,31 +1855,169 @@ components:
                             statusCode: F
                           teams:
                             away:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                             home:
-                                LeagueRecord:
+                                isWinner: true
+                                leagueRecord:
                                     losses: 88
                                     pct: ".409"
                                     wins: 61
-                                Team:
-                                    id: 120
-                                    link: /api/v1/teams/120
-                                    name: Washington Nationals
-                                isWinner: true
                                 score: 3
                                 seriesNumber: 48
                                 splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                      totalEvents: 0
+                      totalGames: 15
+                      totalGamesInProgress: 0
+                      totalItems: 15
+                    - date: "2021-09-19"
+                      events:
+                        - Aliquam odio quis et ratione.
+                        - Culpa voluptas nemo voluptas eos dolor ex.
+                        - Placeat nesciunt sit modi.
+                      games:
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                isWinner: true
+                                leagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                            home:
+                                isWinner: true
+                                leagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                          tiebreaker: "N"
+                          venue:
+                            id: 3309
+                            link: /api/v1/venues/3309
+                            name: Nationals Park
+                        - calendarEventID: 14-632438-2021-09-19
+                          content:
+                            link: /api/v1/game/632438/content
+                          dayNight: day
+                          doubleHeader: "N"
+                          gameDate: "2021-09-19T17:05:00Z"
+                          gameNumber: 1
+                          gamePk: 632438
+                          gameType: R
+                          gamedayType: P
+                          gamesInSeries: 3
+                          ifNecessary: "N"
+                          ifNecessaryDescription: Normal Game
+                          inningBreakLength: 120
+                          isTie: false
+                          link: /api/v1.1/game/632438/feed/live
+                          officialDate: "2021-09-19"
+                          publicFacing: true
+                          recordSource: S
+                          reverseHomeAwayStatus: false
+                          scheduledInnings: 9
+                          season: "2021"
+                          seasonDisplay: "2021"
+                          seriesDescription: Regular Season
+                          seriesGameNumber: 3
+                          status:
+                            abstractGameCode: F
+                            abstractGameState: Final
+                            codedGameState: F
+                            detailedState: Final
+                            startTimeTBD: false
+                            statusCode: F
+                          teams:
+                            away:
+                                isWinner: true
+                                leagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
+                            home:
+                                isWinner: true
+                                leagueRecord:
+                                    losses: 88
+                                    pct: ".409"
+                                    wins: 61
+                                score: 3
+                                seriesNumber: 48
+                                splitSquad: false
+                                team:
+                                    id: 120
+                                    link: /api/v1/teams/120
+                                    name: Washington Nationals
                           tiebreaker: "N"
                           venue:
                             id: 3309
@@ -2084,14 +2087,12 @@ components:
         TeamInfo:
             type: object
             properties:
-                LeagueRecord:
-                    $ref: '#/components/schemas/LeagueRecord'
-                Team:
-                    $ref: '#/components/schemas/Team'
                 isWinner:
                     type: boolean
                     description: is this team won this game
                     example: true
+                leagueRecord:
+                    $ref: '#/components/schemas/LeagueRecord'
                 score:
                     type: integer
                     description: score of the team
@@ -2104,19 +2105,21 @@ components:
                     type: boolean
                     description: splitSquad for the team
                     example: false
+                team:
+                    $ref: '#/components/schemas/Team'
             example:
-                LeagueRecord:
+                isWinner: true
+                leagueRecord:
                     losses: 88
                     pct: ".409"
                     wins: 61
-                Team:
-                    id: 120
-                    link: /api/v1/teams/120
-                    name: Washington Nationals
-                isWinner: true
                 score: 3
                 seriesNumber: 48
                 splitSquad: false
+                team:
+                    id: 120
+                    link: /api/v1/teams/120
+                    name: Washington Nationals
         Teams:
             type: object
             properties:
@@ -2126,31 +2129,31 @@ components:
                     $ref: '#/components/schemas/TeamInfo'
             example:
                 away:
-                    LeagueRecord:
+                    isWinner: true
+                    leagueRecord:
                         losses: 88
                         pct: ".409"
                         wins: 61
-                    Team:
-                        id: 120
-                        link: /api/v1/teams/120
-                        name: Washington Nationals
-                    isWinner: true
                     score: 3
                     seriesNumber: 48
                     splitSquad: false
+                    team:
+                        id: 120
+                        link: /api/v1/teams/120
+                        name: Washington Nationals
                 home:
-                    LeagueRecord:
+                    isWinner: true
+                    leagueRecord:
                         losses: 88
                         pct: ".409"
                         wins: 61
-                    Team:
-                        id: 120
-                        link: /api/v1/teams/120
-                        name: Washington Nationals
-                    isWinner: true
                     score: 3
                     seriesNumber: 48
                     splitSquad: false
+                    team:
+                        id: 120
+                        link: /api/v1/teams/120
+                        name: Washington Nationals
 tags:
     - name: Scheduler
       description: Scheduler service acts as a single source of truth for consumers to get a custom sorted schedule of games.

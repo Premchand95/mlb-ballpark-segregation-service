@@ -43,6 +43,7 @@ var Date = Type("Date", func() {
 	})
 	Attribute("games", ArrayOf(Game), "list of games on this date")
 	Attribute("events", ArrayOf(Any), "list of events on this date")
+	Required("games", "events")
 })
 
 var Game = Type("Game", func() {
@@ -165,8 +166,8 @@ var TeamInfo = Type("TeamInfo", func() {
 	Attribute("seriesNumber", UInt, "seriesNumber for the team", func() {
 		Example(48)
 	})
-	Attribute("LeagueRecord", LeagueRecord, "leagueRecord of the team")
-	Attribute("Team", Team, "team basic information")
+	Attribute("leagueRecord", LeagueRecord, "leagueRecord of the team")
+	Attribute("team", Team, "team basic information")
 })
 
 var LeagueRecord = Type("LeagueRecord", func() {

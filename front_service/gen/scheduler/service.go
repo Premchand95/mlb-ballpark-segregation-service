@@ -303,9 +303,6 @@ func transformSchedulerviewsDateViewToDate(v *schedulerviews.DateView) *Date {
 // transformSchedulerviewsGameViewToGame builds a value of type *Game from a
 // value of type *schedulerviews.GameView.
 func transformSchedulerviewsGameViewToGame(v *schedulerviews.GameView) *Game {
-	if v == nil {
-		return nil
-	}
 	res := &Game{
 		GamePk:                 v.GamePk,
 		Link:                   v.Link,
@@ -495,9 +492,6 @@ func transformDateToSchedulerviewsDateView(v *Date) *schedulerviews.DateView {
 // transformGameToSchedulerviewsGameView builds a value of type
 // *schedulerviews.GameView from a value of type *Game.
 func transformGameToSchedulerviewsGameView(v *Game) *schedulerviews.GameView {
-	if v == nil {
-		return nil
-	}
 	res := &schedulerviews.GameView{
 		GamePk:                 v.GamePk,
 		Link:                   v.Link,
