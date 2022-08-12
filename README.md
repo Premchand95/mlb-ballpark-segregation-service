@@ -1,6 +1,4 @@
-# public-api-design
-
-This repository contains Goa designs for Flexera's public APIs.
+# MLB-Ballpark-services
 
 Related Resources
 
