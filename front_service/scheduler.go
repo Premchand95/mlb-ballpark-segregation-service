@@ -2,6 +2,7 @@ package front_service
 
 import (
 	"context"
+	"errors"
 	"log"
 
 	scheduler "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler"
@@ -11,7 +12,13 @@ import (
 // Scheduler service example implementation.
 // The example methods log the requests and return zero values.
 type schedulersrvc struct {
-	logger *log.Logger
+	logger log.Logger
+	statsC stats.Client
+}
+
+type SchedulerParams struct {
+	StatsC stats.Client
+	Logger log.Logger
 }
 
 // checks weather all endpoints are implemented or not
@@ -20,21 +27,21 @@ var (
 )
 
 // NewScheduler returns the Scheduler service implementation.
-func NewScheduler(logger *log.Logger) scheduler.Service {
-	return &schedulersrvc{logger}
+func NewScheduler(params *SchedulerParams) (scheduler.Service, error) {
+	if params.StatsC == nil {
+		return nil, errors.New("all parameters are required for instantiating the scheduler client")
+	}
+	return &schedulersrvc{
+		logger: params.Logger,
+		statsC: params.StatsC,
+	}, nil
 }
 
 // Retrieves a schedule of games
 func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (res *scheduler.Schedule, err error) {
 	res = &scheduler.Schedule{}
 
-	statsC, err := stats.NewStatsClient(ctx)
-	if err != nil {
-		s.logger.Print("error", err)
-		return nil, err
-	}
-
-	res, err = statsC.GetStatsAPISchedule(ctx, p.Date)
+	res, err = s.statsC.GetStatsAPISchedule(ctx, p.Date)
 	if err != nil {
 		s.logger.Print("error", err)
 		return nil, err
@@ -53,19 +60,17 @@ func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (r
 	}
 
 	favTeamGames := s.getFavoriteTeamGames(ctx, p.ID, games)
-	//s.logger.Printf(prettyPrint(favTeamGames))
-
 	if len(favTeamGames) == 0 {
 		// there is no games for our fav team on given day, so return response as it is.
 		s.logger.Print("there is no games for our fav team on given day", len(favTeamGames))
 		return res, err
 	}
 
-	if len(favTeamGames) < 2 {
-		index := indexOfGame(games, favTeamGames[0])
-		in := []int{index}
-		games = recursiveRearrange(games, in)
-	}
+	favIndices := GetIndexOfGames(games, favTeamGames)
+
+	s.logger.Printf("the indices of the fav games: %v", favIndices)
+
+	games = recursiveRearrange(games, favIndices)
 
 	res.Dates[0].Games = games
 

@@ -15,6 +15,8 @@ import (
 	frontsvc "github.com/mlb/mlb-ballpark-segregation-service/front_service"
 	design "github.com/mlb/mlb-ballpark-segregation-service/front_service/design"
 	scheduler "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler"
+	"github.com/mlb/mlb-ballpark-segregation-service/front_service/services/requests"
+	stats "github.com/mlb/mlb-ballpark-segregation-service/front_service/services/statsAPI"
 )
 
 func main() {
@@ -37,12 +39,45 @@ func main() {
 		logger = log.New(os.Stderr, fmt.Sprintf("[%s] ", design.ServiceName), log.Ltime)
 	}
 
+	//Initialize the requests client
+	var (
+		req *requests.Client
+		err error
+	)
+	{
+		req, err = requests.NewClient()
+		if err != nil {
+			logger.Fatal("error while creating new requests client", err.Error())
+		}
+	}
+
+	//initialize the stats service
+	var (
+		statsC stats.Client
+	)
+	{
+		statsC, err = stats.NewStatsClient(&stats.StatsClientParams{
+			Req:    req,
+			Logger: logger,
+		})
+
+		if err != nil {
+			logger.Fatal("error while creating new stats client", err.Error())
+		}
+	}
+
 	// Initialize the services.
 	var (
 		schedulerSvc scheduler.Service
 	)
 	{
-		schedulerSvc = frontsvc.NewScheduler(logger)
+		schedulerSvc, err = frontsvc.NewScheduler(&frontsvc.SchedulerParams{
+			StatsC: statsC,
+			Logger: *logger,
+		})
+		if err != nil {
+			logger.Fatal("error while creating new scheduler front service", err.Error())
+		}
 	}
 
 	// Wrap the services in endpoints that can be invoked from other services

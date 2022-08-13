@@ -3,6 +3,7 @@ package statsapi
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 
@@ -16,38 +17,38 @@ const (
 	language string = "en"
 )
 
-var _ ClientStatsAPI = (*StatsClient)(nil)
+var _ Client = (*statsClient)(nil)
 
 type (
-	// Stats client interface
-	ClientStatsAPI interface {
+	//Stats client interface
+	Client interface {
 		GetStatsAPISchedule(context.Context, string) (*types.Schedule, error)
 	}
 
 	// Stats API client struct
-	StatsClient struct {
-		req *requests.Client
+	statsClient struct {
+		req    requests.Client
+		logger log.Logger
 	}
-)
 
-type (
-	Client interface {
-		GetStatsAPISchedule(context.Context, string) (*types.Schedule, error)
+	StatsClientParams struct {
+		Req    *requests.Client
+		Logger *log.Logger
 	}
 )
 
 //NewStatsClient initialize new Stats client
-func NewStatsClient(ctx context.Context) (*StatsClient, error) {
-	// create new requests client
-	req, err := requests.NewClient()
-	if err != nil {
-		log.Println(ctx, "error", "error while creating new requests client", err.Error())
-		return nil, fmt.Errorf("error while creating new requests client")
+func NewStatsClient(params *StatsClientParams) (*statsClient, error) {
+	if params.Req == nil || params.Logger == nil {
+		return nil, errors.New("all parameters are required for instantiating the stats API client")
 	}
-	return &StatsClient{req: req}, err
+	return &statsClient{
+		req:    *params.Req,
+		logger: *params.Logger,
+	}, nil
 }
 
-func (s *StatsClient) GetStatsAPISchedule(ctx context.Context, date string) (*types.Schedule, error) {
+func (s *statsClient) GetStatsAPISchedule(ctx context.Context, date string) (*types.Schedule, error) {
 	var schedule types.Schedule
 	params := make(map[string]string, 0)
 

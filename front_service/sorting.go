@@ -75,6 +75,14 @@ func indexOfGame(s []*scheduler.Game, x *scheduler.Game) int {
 	return -1
 }
 
+func GetIndexOfGames(s []*scheduler.Game, x []*scheduler.Game) []int {
+	var indexArray []int
+	for i := range x {
+		indexArray = append(indexArray, indexOfGame(s, x[i]))
+	}
+	return indexArray
+}
+
 func deleteGame(s []*scheduler.Game, i int) []*scheduler.Game {
 	if i == len(s)-1 {
 		return s[:i]
