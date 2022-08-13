@@ -3,7 +3,11 @@ package front_service
 import (
 	"context"
 	"encoding/json"
+	"errors"
+	"fmt"
+	"time"
 
+	design "github.com/mlb/mlb-ballpark-segregation-service/front_service/design"
 	scheduler "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler"
 )
 
@@ -114,4 +118,91 @@ func incrementByOne(slice []int) []int {
 		slice[i]++
 	}
 	return slice
+}
+
+/*
+* CreateCustomIndex: returns the custom array of indices for fav games.
+* Description: This function will handle the double header situation & finds the earlier & later games in a given day.
+* 			   Also, It will take care of live game constrains & sort the games based future or past events
+*		  doubleheader: Y (single admission)
+*				second/later game is one with startTImeTBD value true
+*         doubleheader: S (split admission)
+*               decide earlier & later games based on gameDate
+*
+*
+ */
+func CreateCustomIndex(ctx context.Context, favIndices []int, favGames []*scheduler.Game) ([]int, error) {
+	var earlier, later *scheduler.Game
+	if len(favGames) != 2 {
+		/* if we got less than two games or more than two games, just return the order as it is. we are not handling more
+		than two games played by one team in this API version. */
+		return favIndices, nil
+	}
+	g1 := favGames[0]
+	g2 := favGames[1]
+	// if it is single admission both games will gave doubleheader "Y"
+	if isSingleAdmission(ctx, g1) || isSingleAdmission(ctx, g2) {
+		if getStartTImeTBD(ctx, g1) && !getStartTImeTBD(ctx, g2) {
+			later = g1
+			earlier = g2
+		}
+		later = g2
+		earlier = g1
+	} else {
+		g1Time, err := getGameDate(ctx, g1)
+		if err != nil {
+			return nil, err
+		}
+		g2Time, err := getGameDate(ctx, g2)
+		if err != nil {
+			return nil, err
+		}
+		fmt.Println(g1Time, g2Time)
+	}
+
+	fmt.Println(earlier, later)
+	fmt.Println(earlier, later)
+
+	return favIndices, nil
+}
+
+func getDoubleheader(ctx context.Context, game *scheduler.Game) *string {
+	if isNotNil(game) {
+		if isNotNil(game.DoubleHeader) {
+			return game.DoubleHeader
+		}
+	}
+	return nil
+}
+
+func isSingleAdmission(ctx context.Context, game *scheduler.Game) bool {
+	if s := getDoubleheader(ctx, game); s != nil {
+		return *s == "Y"
+	}
+	return false
+}
+
+func getStartTImeTBD(ctx context.Context, game *scheduler.Game) bool {
+	if isNotNil(game) {
+		if isNotNil(game.Status) {
+			if isNotNil(game.Status.StartTimeTBD) {
+				return *game.Status.StartTimeTBD
+			}
+		}
+	}
+	return false
+}
+
+func getGameDate(ctx context.Context, game *scheduler.Game) (time.Time, error) {
+	var tm time.Time
+	if isNotNil(game) {
+		if isNotNil(game.GameDate) {
+			tm, err := time.Parse(string(design.DateTimeFormat), *game.GameDate)
+			if err != nil {
+				return tm, errors.New(fmt.Sprintf("error parsing time format: %s", *game.GameDate))
+			}
+			return tm, nil
+		}
+	}
+	return tm, errors.New("seems date value is null")
 }

@@ -172,6 +172,9 @@ func marshalSchedulerviewsGameViewToGameResponseBody(v *schedulerviews.GameView)
 		Season:                 v.Season,
 		GameDate:               v.GameDate,
 		OfficialDate:           v.OfficialDate,
+		RescheduledFrom:        v.RescheduledFrom,
+		RescheduledFromDate:    v.RescheduledFromDate,
+		Description:            v.Description,
 		IsTie:                  v.IsTie,
 		GameNumber:             v.GameNumber,
 		PublicFacing:           v.PublicFacing,
@@ -220,6 +223,7 @@ func marshalSchedulerviewsStatusViewToStatusResponseBody(v *schedulerviews.Statu
 		StatusCode:        v.StatusCode,
 		StartTimeTBD:      v.StartTimeTBD,
 		AbstractGameCode:  v.AbstractGameCode,
+		Reason:            v.Reason,
 	}
 
 	return res

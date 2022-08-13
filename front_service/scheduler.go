@@ -50,32 +50,43 @@ func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (r
 	var games []*scheduler.Game
 
 	if isNotNil(res) {
-		// dates is a required field, so no need to do nil check
-		if len(res.Dates) > 0 {
-			// As we query stats API scheduler with only one date, for now, we assume we only get one date
-			if len(res.Dates[0].Games) > 0 {
-				games = append(games, res.Dates[0].Games...)
+		// len of nil array is 0
+		if len(res.Dates) <= 0 {
+			s.logger.Printf("No games scheduled on this date: %s", p.Date)
+
+		}
+
+		var date scheduler.Date
+		for _, d := range res.Dates {
+			if isNotNil(d.Date) {
+				if *d.Date == p.Date {
+					date = *d
+				}
 			}
 		}
+		games = append(games, date.Games...)
 	}
 
 	favTeamGames := s.getFavoriteTeamGames(ctx, p.ID, games)
 	if len(favTeamGames) == 0 {
 		// there is no games for our fav team on given day, so return response as it is.
 		s.logger.Print("there is no games for our fav team on given day", len(favTeamGames))
-		return res, err
+		return res, nil
 	}
 
 	favIndices := GetIndexOfGames(games, favTeamGames)
 
+	// we are sure one team plays only two games for a day
+	if len(favTeamGames) == 2 {
+		// we have to deal with doubleheader situation & rearrange the index in custom order.
+		favIndices, err = CreateCustomIndex(ctx, favIndices, favTeamGames)
+		if err != nil {
+			return
+		}
+	}
 	s.logger.Printf("the indices of the fav games: %v", favIndices)
-
 	games = recursiveRearrange(games, favIndices)
-
 	res.Dates[0].Games = games
-
 	s.logger.Print("favGames len", len(favTeamGames))
-
-	s.logger.Print("scheduler.index")
 	return
 }

@@ -96,6 +96,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -111,6 +112,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -122,6 +125,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -160,6 +164,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -175,6 +180,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -186,6 +193,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -251,6 +259,7 @@ definitions:
                   content:
                     link: /api/v1/game/632438/content
                   dayNight: day
+                  description: Makeup of 7/8 PPD
                   doubleHeader: "N"
                   gameDate: "2021-09-19T17:05:00Z"
                   gameNumber: 1
@@ -266,6 +275,8 @@ definitions:
                   officialDate: "2021-09-19"
                   publicFacing: true
                   recordSource: S
+                  rescheduledFrom: "2021-07-08T23:05:00Z"
+                  rescheduledFromDate: "2021-07-08"
                   reverseHomeAwayStatus: false
                   scheduledInnings: 9
                   season: "2021"
@@ -277,6 +288,7 @@ definitions:
                     abstractGameState: Final
                     codedGameState: F
                     detailedState: Final
+                    reason: Tied
                     startTimeTBD: false
                     statusCode: F
                   teams:
@@ -315,6 +327,7 @@ definitions:
                   content:
                     link: /api/v1/game/632438/content
                   dayNight: day
+                  description: Makeup of 7/8 PPD
                   doubleHeader: "N"
                   gameDate: "2021-09-19T17:05:00Z"
                   gameNumber: 1
@@ -330,6 +343,8 @@ definitions:
                   officialDate: "2021-09-19"
                   publicFacing: true
                   recordSource: S
+                  rescheduledFrom: "2021-07-08T23:05:00Z"
+                  rescheduledFromDate: "2021-07-08"
                   reverseHomeAwayStatus: false
                   scheduledInnings: 9
                   season: "2021"
@@ -341,6 +356,7 @@ definitions:
                     abstractGameState: Final
                     codedGameState: F
                     detailedState: Final
+                    reason: Tied
                     startTimeTBD: false
                     statusCode: F
                   teams:
@@ -379,6 +395,7 @@ definitions:
                   content:
                     link: /api/v1/game/632438/content
                   dayNight: day
+                  description: Makeup of 7/8 PPD
                   doubleHeader: "N"
                   gameDate: "2021-09-19T17:05:00Z"
                   gameNumber: 1
@@ -394,6 +411,8 @@ definitions:
                   officialDate: "2021-09-19"
                   publicFacing: true
                   recordSource: S
+                  rescheduledFrom: "2021-07-08T23:05:00Z"
+                  rescheduledFromDate: "2021-07-08"
                   reverseHomeAwayStatus: false
                   scheduledInnings: 9
                   season: "2021"
@@ -405,6 +424,7 @@ definitions:
                     abstractGameState: Final
                     codedGameState: F
                     detailedState: Final
+                    reason: Tied
                     startTimeTBD: false
                     statusCode: F
                   teams:
@@ -460,6 +480,10 @@ definitions:
                 type: string
                 description: is game day or night
                 example: day
+            description:
+                type: string
+                description: description of the game
+                example: Makeup of 7/8 PPD
             doubleHeader:
                 type: string
                 description: double header situation
@@ -526,6 +550,16 @@ definitions:
                 type: string
                 description: record source of the game
                 example: S
+            rescheduledFrom:
+                type: string
+                description: if this game is rescheduled, it's original date
+                example: "2021-07-08T23:05:00Z"
+                format: date-time
+            rescheduledFromDate:
+                type: string
+                description: official date of the game
+                example: "2021-07-08"
+                format: date
             reverseHomeAwayStatus:
                 type: boolean
                 description: reverse home status of the game
@@ -567,6 +601,7 @@ definitions:
             content:
                 link: /api/v1/game/632438/content
             dayNight: day
+            description: Makeup of 7/8 PPD
             doubleHeader: "N"
             gameDate: "2021-09-19T17:05:00Z"
             gameNumber: 1
@@ -582,6 +617,8 @@ definitions:
             officialDate: "2021-09-19"
             publicFacing: true
             recordSource: S
+            rescheduledFrom: "2021-07-08T23:05:00Z"
+            rescheduledFromDate: "2021-07-08"
             reverseHomeAwayStatus: false
             scheduledInnings: 9
             season: "2021"
@@ -593,6 +630,7 @@ definitions:
                 abstractGameState: Final
                 codedGameState: F
                 detailedState: Final
+                reason: Tied
                 startTimeTBD: false
                 statusCode: F
             teams:
@@ -845,6 +883,7 @@ definitions:
                           content:
                             link: /api/v1/game/632438/content
                           dayNight: day
+                          description: Makeup of 7/8 PPD
                           doubleHeader: "N"
                           gameDate: "2021-09-19T17:05:00Z"
                           gameNumber: 1
@@ -860,6 +899,8 @@ definitions:
                           officialDate: "2021-09-19"
                           publicFacing: true
                           recordSource: S
+                          rescheduledFrom: "2021-07-08T23:05:00Z"
+                          rescheduledFromDate: "2021-07-08"
                           reverseHomeAwayStatus: false
                           scheduledInnings: 9
                           season: "2021"
@@ -871,6 +912,7 @@ definitions:
                             abstractGameState: Final
                             codedGameState: F
                             detailedState: Final
+                            reason: Tied
                             startTimeTBD: false
                             statusCode: F
                           teams:
@@ -909,6 +951,7 @@ definitions:
                           content:
                             link: /api/v1/game/632438/content
                           dayNight: day
+                          description: Makeup of 7/8 PPD
                           doubleHeader: "N"
                           gameDate: "2021-09-19T17:05:00Z"
                           gameNumber: 1
@@ -924,6 +967,8 @@ definitions:
                           officialDate: "2021-09-19"
                           publicFacing: true
                           recordSource: S
+                          rescheduledFrom: "2021-07-08T23:05:00Z"
+                          rescheduledFromDate: "2021-07-08"
                           reverseHomeAwayStatus: false
                           scheduledInnings: 9
                           season: "2021"
@@ -935,6 +980,7 @@ definitions:
                             abstractGameState: Final
                             codedGameState: F
                             detailedState: Final
+                            reason: Tied
                             startTimeTBD: false
                             statusCode: F
                           teams:
@@ -983,6 +1029,7 @@ definitions:
                           content:
                             link: /api/v1/game/632438/content
                           dayNight: day
+                          description: Makeup of 7/8 PPD
                           doubleHeader: "N"
                           gameDate: "2021-09-19T17:05:00Z"
                           gameNumber: 1
@@ -998,6 +1045,8 @@ definitions:
                           officialDate: "2021-09-19"
                           publicFacing: true
                           recordSource: S
+                          rescheduledFrom: "2021-07-08T23:05:00Z"
+                          rescheduledFromDate: "2021-07-08"
                           reverseHomeAwayStatus: false
                           scheduledInnings: 9
                           season: "2021"
@@ -1009,6 +1058,7 @@ definitions:
                             abstractGameState: Final
                             codedGameState: F
                             detailedState: Final
+                            reason: Tied
                             startTimeTBD: false
                             statusCode: F
                           teams:
@@ -1047,6 +1097,7 @@ definitions:
                           content:
                             link: /api/v1/game/632438/content
                           dayNight: day
+                          description: Makeup of 7/8 PPD
                           doubleHeader: "N"
                           gameDate: "2021-09-19T17:05:00Z"
                           gameNumber: 1
@@ -1062,6 +1113,8 @@ definitions:
                           officialDate: "2021-09-19"
                           publicFacing: true
                           recordSource: S
+                          rescheduledFrom: "2021-07-08T23:05:00Z"
+                          rescheduledFromDate: "2021-07-08"
                           reverseHomeAwayStatus: false
                           scheduledInnings: 9
                           season: "2021"
@@ -1073,6 +1126,7 @@ definitions:
                             abstractGameState: Final
                             codedGameState: F
                             detailedState: Final
+                            reason: Tied
                             startTimeTBD: false
                             statusCode: F
                           teams:
@@ -1145,6 +1199,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -1160,6 +1215,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -1171,6 +1228,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -1209,6 +1267,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -1224,6 +1283,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -1235,144 +1296,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
-                        startTimeTBD: false
-                        statusCode: F
-                      teams:
-                        away:
-                            isWinner: true
-                            leagueRecord:
-                                losses: 88
-                                pct: ".409"
-                                wins: 61
-                            score: 3
-                            seriesNumber: 48
-                            splitSquad: false
-                            team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                        home:
-                            isWinner: true
-                            leagueRecord:
-                                losses: 88
-                                pct: ".409"
-                                wins: 61
-                            score: 3
-                            seriesNumber: 48
-                            splitSquad: false
-                            team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                      tiebreaker: "N"
-                      venue:
-                        id: 3309
-                        link: /api/v1/venues/3309
-                        name: Nationals Park
-                  totalEvents: 0
-                  totalGames: 15
-                  totalGamesInProgress: 0
-                  totalItems: 15
-                - date: "2021-09-19"
-                  events:
-                    - Aliquam odio quis et ratione.
-                    - Culpa voluptas nemo voluptas eos dolor ex.
-                    - Placeat nesciunt sit modi.
-                  games:
-                    - calendarEventID: 14-632438-2021-09-19
-                      content:
-                        link: /api/v1/game/632438/content
-                      dayNight: day
-                      doubleHeader: "N"
-                      gameDate: "2021-09-19T17:05:00Z"
-                      gameNumber: 1
-                      gamePk: 632438
-                      gameType: R
-                      gamedayType: P
-                      gamesInSeries: 3
-                      ifNecessary: "N"
-                      ifNecessaryDescription: Normal Game
-                      inningBreakLength: 120
-                      isTie: false
-                      link: /api/v1.1/game/632438/feed/live
-                      officialDate: "2021-09-19"
-                      publicFacing: true
-                      recordSource: S
-                      reverseHomeAwayStatus: false
-                      scheduledInnings: 9
-                      season: "2021"
-                      seasonDisplay: "2021"
-                      seriesDescription: Regular Season
-                      seriesGameNumber: 3
-                      status:
-                        abstractGameCode: F
-                        abstractGameState: Final
-                        codedGameState: F
-                        detailedState: Final
-                        startTimeTBD: false
-                        statusCode: F
-                      teams:
-                        away:
-                            isWinner: true
-                            leagueRecord:
-                                losses: 88
-                                pct: ".409"
-                                wins: 61
-                            score: 3
-                            seriesNumber: 48
-                            splitSquad: false
-                            team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                        home:
-                            isWinner: true
-                            leagueRecord:
-                                losses: 88
-                                pct: ".409"
-                                wins: 61
-                            score: 3
-                            seriesNumber: 48
-                            splitSquad: false
-                            team:
-                                id: 120
-                                link: /api/v1/teams/120
-                                name: Washington Nationals
-                      tiebreaker: "N"
-                      venue:
-                        id: 3309
-                        link: /api/v1/venues/3309
-                        name: Nationals Park
-                    - calendarEventID: 14-632438-2021-09-19
-                      content:
-                        link: /api/v1/game/632438/content
-                      dayNight: day
-                      doubleHeader: "N"
-                      gameDate: "2021-09-19T17:05:00Z"
-                      gameNumber: 1
-                      gamePk: 632438
-                      gameType: R
-                      gamedayType: P
-                      gamesInSeries: 3
-                      ifNecessary: "N"
-                      ifNecessaryDescription: Normal Game
-                      inningBreakLength: 120
-                      isTie: false
-                      link: /api/v1.1/game/632438/feed/live
-                      officialDate: "2021-09-19"
-                      publicFacing: true
-                      recordSource: S
-                      reverseHomeAwayStatus: false
-                      scheduledInnings: 9
-                      season: "2021"
-                      seasonDisplay: "2021"
-                      seriesDescription: Regular Season
-                      seriesGameNumber: 3
-                      status:
-                        abstractGameCode: F
-                        abstractGameState: Final
-                        codedGameState: F
-                        detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -1421,6 +1345,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -1436,6 +1361,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -1447,6 +1374,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -1485,6 +1413,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -1500,6 +1429,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -1511,6 +1442,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -1559,6 +1491,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -1574,6 +1507,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -1585,6 +1520,7 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -1623,6 +1559,7 @@ definitions:
                       content:
                         link: /api/v1/game/632438/content
                       dayNight: day
+                      description: Makeup of 7/8 PPD
                       doubleHeader: "N"
                       gameDate: "2021-09-19T17:05:00Z"
                       gameNumber: 1
@@ -1638,6 +1575,8 @@ definitions:
                       officialDate: "2021-09-19"
                       publicFacing: true
                       recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
                       reverseHomeAwayStatus: false
                       scheduledInnings: 9
                       season: "2021"
@@ -1649,6 +1588,153 @@ definitions:
                         abstractGameState: Final
                         codedGameState: F
                         detailedState: Final
+                        reason: Tied
+                        startTimeTBD: false
+                        statusCode: F
+                      teams:
+                        away:
+                            isWinner: true
+                            leagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                        home:
+                            isWinner: true
+                            leagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                      tiebreaker: "N"
+                      venue:
+                        id: 3309
+                        link: /api/v1/venues/3309
+                        name: Nationals Park
+                  totalEvents: 0
+                  totalGames: 15
+                  totalGamesInProgress: 0
+                  totalItems: 15
+                - date: "2021-09-19"
+                  events:
+                    - Aliquam odio quis et ratione.
+                    - Culpa voluptas nemo voluptas eos dolor ex.
+                    - Placeat nesciunt sit modi.
+                  games:
+                    - calendarEventID: 14-632438-2021-09-19
+                      content:
+                        link: /api/v1/game/632438/content
+                      dayNight: day
+                      description: Makeup of 7/8 PPD
+                      doubleHeader: "N"
+                      gameDate: "2021-09-19T17:05:00Z"
+                      gameNumber: 1
+                      gamePk: 632438
+                      gameType: R
+                      gamedayType: P
+                      gamesInSeries: 3
+                      ifNecessary: "N"
+                      ifNecessaryDescription: Normal Game
+                      inningBreakLength: 120
+                      isTie: false
+                      link: /api/v1.1/game/632438/feed/live
+                      officialDate: "2021-09-19"
+                      publicFacing: true
+                      recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
+                      reverseHomeAwayStatus: false
+                      scheduledInnings: 9
+                      season: "2021"
+                      seasonDisplay: "2021"
+                      seriesDescription: Regular Season
+                      seriesGameNumber: 3
+                      status:
+                        abstractGameCode: F
+                        abstractGameState: Final
+                        codedGameState: F
+                        detailedState: Final
+                        reason: Tied
+                        startTimeTBD: false
+                        statusCode: F
+                      teams:
+                        away:
+                            isWinner: true
+                            leagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                        home:
+                            isWinner: true
+                            leagueRecord:
+                                losses: 88
+                                pct: ".409"
+                                wins: 61
+                            score: 3
+                            seriesNumber: 48
+                            splitSquad: false
+                            team:
+                                id: 120
+                                link: /api/v1/teams/120
+                                name: Washington Nationals
+                      tiebreaker: "N"
+                      venue:
+                        id: 3309
+                        link: /api/v1/venues/3309
+                        name: Nationals Park
+                    - calendarEventID: 14-632438-2021-09-19
+                      content:
+                        link: /api/v1/game/632438/content
+                      dayNight: day
+                      description: Makeup of 7/8 PPD
+                      doubleHeader: "N"
+                      gameDate: "2021-09-19T17:05:00Z"
+                      gameNumber: 1
+                      gamePk: 632438
+                      gameType: R
+                      gamedayType: P
+                      gamesInSeries: 3
+                      ifNecessary: "N"
+                      ifNecessaryDescription: Normal Game
+                      inningBreakLength: 120
+                      isTie: false
+                      link: /api/v1.1/game/632438/feed/live
+                      officialDate: "2021-09-19"
+                      publicFacing: true
+                      recordSource: S
+                      rescheduledFrom: "2021-07-08T23:05:00Z"
+                      rescheduledFromDate: "2021-07-08"
+                      reverseHomeAwayStatus: false
+                      scheduledInnings: 9
+                      season: "2021"
+                      seasonDisplay: "2021"
+                      seriesDescription: Regular Season
+                      seriesGameNumber: 3
+                      status:
+                        abstractGameCode: F
+                        abstractGameState: Final
+                        codedGameState: F
+                        detailedState: Final
+                        reason: Tied
                         startTimeTBD: false
                         statusCode: F
                       teams:
@@ -1711,6 +1797,10 @@ definitions:
                 type: string
                 description: detailed state of the game
                 example: Final
+            reason:
+                type: string
+                description: reason of the game
+                example: Tied
             startTimeTBD:
                 type: boolean
                 description: start time to be determined for this game
@@ -1724,6 +1814,7 @@ definitions:
             abstractGameState: Final
             codedGameState: F
             detailedState: Final
+            reason: Tied
             startTimeTBD: false
             statusCode: F
     TeamInfoResponseBody:

@@ -59,13 +59,13 @@ func (s *statsClient) GetStatsAPISchedule(ctx context.Context, date string) (*ty
 	// prepare parameters
 	res, err := s.req.Get(ctx, host, params)
 	if err != nil {
-		log.Println(ctx, "error", "error calling Get method", err.Error())
+		s.logger.Print(ctx, "error", "error calling Get method", err.Error())
 		return nil, fmt.Errorf("error calling GET method")
 	}
 	// unmarshal the GET Response
 	err = json.Unmarshal(res, &schedule)
 	if err != nil {
-		log.Println(ctx, "error", "error while un marshalling GET response", err.Error())
+		s.logger.Print(ctx, "error", "error while un marshalling GET response", err.Error())
 		return nil, fmt.Errorf("error un marshalling Get response into type scheduler")
 	}
 	return &schedule, nil

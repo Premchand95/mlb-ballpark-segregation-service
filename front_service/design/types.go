@@ -4,6 +4,11 @@ import (
 	. "goa.design/goa/v3/dsl"
 )
 
+const (
+	DateFormat     = FormatDate
+	DateTimeFormat = FormatDateTime
+)
+
 var Schedule = ResultType("application/mlb.schedule", "Schedule", func() {
 	Description("Schedule is the detailed custom report for a given date.")
 	Attributes(func() {
@@ -66,6 +71,17 @@ var Game = Type("Game", func() {
 	Attribute("officialDate", String, "official date of the game", func() {
 		Example("2021-09-19")
 		Format(FormatDate)
+	})
+	Attribute("rescheduledFrom", String, "if this game is rescheduled, it's original date", func() {
+		Example("2021-07-08T23:05:00Z")
+		Format(FormatDateTime)
+	})
+	Attribute("rescheduledFromDate", String, "official date of the game", func() {
+		Example("2021-07-08")
+		Format(FormatDate)
+	})
+	Attribute("description", String, "description of the game", func() {
+		Example("Makeup of 7/8 PPD")
 	})
 	Attribute("status", Status, "status details of the game")
 	Attribute("teams", Teams, "details of the two teams of a game")
@@ -145,6 +161,9 @@ var Status = Type("Status", func() {
 	})
 	Attribute("abstractGameCode", String, "abstract code of the game", func() {
 		Example("F")
+	})
+	Attribute("reason", String, "reason of the game", func() {
+		Example("Tied")
 	})
 })
 

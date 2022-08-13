@@ -68,6 +68,12 @@ type GameView struct {
 	GameDate *string
 	// official date of the game
 	OfficialDate *string
+	// if this game is rescheduled, it's original date
+	RescheduledFrom *string
+	// official date of the game
+	RescheduledFromDate *string
+	// description of the game
+	Description *string
 	// status details of the game
 	Status *StatusView
 	// details of the two teams of a game
@@ -128,6 +134,8 @@ type StatusView struct {
 	StartTimeTBD *bool
 	// abstract code of the game
 	AbstractGameCode *string
+	// reason of the game
+	Reason *string
 }
 
 // TeamsView is a type that runs validations on a projected type.
@@ -257,6 +265,12 @@ func ValidateGameView(result *GameView) (err error) {
 	}
 	if result.OfficialDate != nil {
 		err = goa.MergeErrors(err, goa.ValidateFormat("result.officialDate", *result.OfficialDate, goa.FormatDate))
+	}
+	if result.RescheduledFrom != nil {
+		err = goa.MergeErrors(err, goa.ValidateFormat("result.rescheduledFrom", *result.RescheduledFrom, goa.FormatDateTime))
+	}
+	if result.RescheduledFromDate != nil {
+		err = goa.MergeErrors(err, goa.ValidateFormat("result.rescheduledFromDate", *result.RescheduledFromDate, goa.FormatDate))
 	}
 	return
 }

@@ -67,6 +67,12 @@ type Game struct {
 	GameDate *string
 	// official date of the game
 	OfficialDate *string
+	// if this game is rescheduled, it's original date
+	RescheduledFrom *string
+	// official date of the game
+	RescheduledFromDate *string
+	// description of the game
+	Description *string
 	// status details of the game
 	Status *Status
 	// details of the two teams of a game
@@ -159,6 +165,8 @@ type Status struct {
 	StartTimeTBD *bool
 	// abstract code of the game
 	AbstractGameCode *string
+	// reason of the game
+	Reason *string
 }
 
 type Team struct {
@@ -310,6 +318,9 @@ func transformSchedulerviewsGameViewToGame(v *schedulerviews.GameView) *Game {
 		Season:                 v.Season,
 		GameDate:               v.GameDate,
 		OfficialDate:           v.OfficialDate,
+		RescheduledFrom:        v.RescheduledFrom,
+		RescheduledFromDate:    v.RescheduledFromDate,
+		Description:            v.Description,
 		IsTie:                  v.IsTie,
 		GameNumber:             v.GameNumber,
 		PublicFacing:           v.PublicFacing,
@@ -358,6 +369,7 @@ func transformSchedulerviewsStatusViewToStatus(v *schedulerviews.StatusView) *St
 		StatusCode:        v.StatusCode,
 		StartTimeTBD:      v.StartTimeTBD,
 		AbstractGameCode:  v.AbstractGameCode,
+		Reason:            v.Reason,
 	}
 
 	return res
@@ -499,6 +511,9 @@ func transformGameToSchedulerviewsGameView(v *Game) *schedulerviews.GameView {
 		Season:                 v.Season,
 		GameDate:               v.GameDate,
 		OfficialDate:           v.OfficialDate,
+		RescheduledFrom:        v.RescheduledFrom,
+		RescheduledFromDate:    v.RescheduledFromDate,
+		Description:            v.Description,
 		IsTie:                  v.IsTie,
 		GameNumber:             v.GameNumber,
 		PublicFacing:           v.PublicFacing,
@@ -547,6 +562,7 @@ func transformStatusToSchedulerviewsStatusView(v *Status) *schedulerviews.Status
 		StatusCode:        v.StatusCode,
 		StartTimeTBD:      v.StartTimeTBD,
 		AbstractGameCode:  v.AbstractGameCode,
+		Reason:            v.Reason,
 	}
 
 	return res

@@ -134,6 +134,12 @@ type GameResponseBody struct {
 	GameDate *string `form:"gameDate,omitempty" json:"gameDate,omitempty" xml:"gameDate,omitempty"`
 	// official date of the game
 	OfficialDate *string `form:"officialDate,omitempty" json:"officialDate,omitempty" xml:"officialDate,omitempty"`
+	// if this game is rescheduled, it's original date
+	RescheduledFrom *string `form:"rescheduledFrom,omitempty" json:"rescheduledFrom,omitempty" xml:"rescheduledFrom,omitempty"`
+	// official date of the game
+	RescheduledFromDate *string `form:"rescheduledFromDate,omitempty" json:"rescheduledFromDate,omitempty" xml:"rescheduledFromDate,omitempty"`
+	// description of the game
+	Description *string `form:"description,omitempty" json:"description,omitempty" xml:"description,omitempty"`
 	// status details of the game
 	Status *StatusResponseBody `form:"status,omitempty" json:"status,omitempty" xml:"status,omitempty"`
 	// details of the two teams of a game
@@ -194,6 +200,8 @@ type StatusResponseBody struct {
 	StartTimeTBD *bool `form:"startTimeTBD,omitempty" json:"startTimeTBD,omitempty" xml:"startTimeTBD,omitempty"`
 	// abstract code of the game
 	AbstractGameCode *string `form:"abstractGameCode,omitempty" json:"abstractGameCode,omitempty" xml:"abstractGameCode,omitempty"`
+	// reason of the game
+	Reason *string `form:"reason,omitempty" json:"reason,omitempty" xml:"reason,omitempty"`
 }
 
 // TeamsResponseBody is used to define fields on response body types.
@@ -459,6 +467,12 @@ func ValidateGameResponseBody(body *GameResponseBody) (err error) {
 	}
 	if body.OfficialDate != nil {
 		err = goa.MergeErrors(err, goa.ValidateFormat("body.officialDate", *body.OfficialDate, goa.FormatDate))
+	}
+	if body.RescheduledFrom != nil {
+		err = goa.MergeErrors(err, goa.ValidateFormat("body.rescheduledFrom", *body.RescheduledFrom, goa.FormatDateTime))
+	}
+	if body.RescheduledFromDate != nil {
+		err = goa.MergeErrors(err, goa.ValidateFormat("body.rescheduledFromDate", *body.RescheduledFromDate, goa.FormatDate))
 	}
 	return
 }
