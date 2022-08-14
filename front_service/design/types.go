@@ -4,11 +4,6 @@ import (
 	. "goa.design/goa/v3/dsl"
 )
 
-const (
-	DateFormat     = FormatDate
-	DateTimeFormat = FormatDateTime
-)
-
 var Schedule = ResultType("application/mlb.schedule", "Schedule", func() {
 	Description("Schedule is the detailed custom report for a given date.")
 	Attributes(func() {

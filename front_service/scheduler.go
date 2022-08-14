@@ -73,17 +73,15 @@ func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (r
 		s.logger.Print("there is no games for our fav team on given day", len(favTeamGames))
 		return res, nil
 	}
-
-	favIndices := GetIndexOfGames(games, favTeamGames)
-
 	// we are sure one team plays only two games for a day
 	if len(favTeamGames) == 2 {
 		// we have to deal with doubleheader situation & rearrange the index in custom order.
-		favIndices, err = CreateCustomIndex(ctx, favIndices, favTeamGames)
+		favTeamGames, err = CreateCustomIndex(ctx, p.Date, favTeamGames)
 		if err != nil {
 			return
 		}
 	}
+	favIndices := GetIndexOfGames(games, favTeamGames)
 	s.logger.Printf("the indices of the fav games: %v", favIndices)
 	games = recursiveRearrange(games, favIndices)
 	res.Dates[0].Games = games

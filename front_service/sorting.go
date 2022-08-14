@@ -7,8 +7,25 @@ import (
 	"fmt"
 	"time"
 
-	design "github.com/mlb/mlb-ballpark-segregation-service/front_service/design"
 	scheduler "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler"
+)
+
+const (
+	DateFormat       = "2006-01-02"
+	DateTimeFormat   = time.RFC3339
+	AvgGameDuration  = 4
+	TimeFramePast    = "PAST"
+	TimeFrameFuture  = "FUTURE"
+	TimeFramePresent = "PRESENT"
+	EarlierGame      = "EARLIER"
+	LaterGame        = "LATER"
+)
+
+var (
+	SortingRules = map[string][]string{
+		TimeFramePast:   []string{LaterGame, EarlierGame},
+		TimeFrameFuture: []string{EarlierGame, LaterGame},
+	}
 )
 
 func (s *schedulersrvc) getFavoriteTeamGames(ctx context.Context, teamID uint, games []*scheduler.Game) []*scheduler.Game {
@@ -131,39 +148,40 @@ func incrementByOne(slice []int) []int {
 *
 *
  */
-func CreateCustomIndex(ctx context.Context, favIndices []int, favGames []*scheduler.Game) ([]int, error) {
-	var earlier, later *scheduler.Game
+func CreateCustomIndex(ctx context.Context, date string, favGames []*scheduler.Game) ([]*scheduler.Game, error) {
+	var timeFrameGameMap map[string]*scheduler.Game
 	if len(favGames) != 2 {
 		/* if we got less than two games or more than two games, just return the order as it is. we are not handling more
 		than two games played by one team in this API version. */
-		return favIndices, nil
+		return favGames, nil
 	}
 	g1 := favGames[0]
 	g2 := favGames[1]
-	// if it is single admission both games will gave doubleheader "Y"
-	if isSingleAdmission(ctx, g1) || isSingleAdmission(ctx, g2) {
-		if getStartTImeTBD(ctx, g1) && !getStartTImeTBD(ctx, g2) {
-			later = g1
-			earlier = g2
-		}
-		later = g2
-		earlier = g1
-	} else {
-		g1Time, err := getGameDate(ctx, g1)
-		if err != nil {
-			return nil, err
-		}
-		g2Time, err := getGameDate(ctx, g2)
-		if err != nil {
-			return nil, err
-		}
-		fmt.Println(g1Time, g2Time)
+
+	timeFrameGameMap, err := GetTimeFrameGameMap(ctx, g1, g2)
+	if err != nil {
+		return favGames, err
 	}
-
-	fmt.Println(earlier, later)
-	fmt.Println(earlier, later)
-
-	return favIndices, nil
+	// currentTime := time.Now()
+	// window := time.Now().Add(AvgGameDuration * time.Hour)
+	var res []*scheduler.Game
+	timeFrame, err := getTimeFrame(date)
+	if err != nil {
+		return favGames, err
+	}
+	switch timeFrame {
+	case TimeFramePresent:
+		fmt.Println(timeFrame, "return the live game")
+	case TimeFramePast, TimeFrameFuture:
+		sortingRule := SortingRules[timeFrame]
+		for _, v := range sortingRule {
+			res = append(res, timeFrameGameMap[v])
+		}
+		return res, nil
+	default:
+		fmt.Println("something went wrong")
+	}
+	return favGames, nil
 }
 
 func getDoubleheader(ctx context.Context, game *scheduler.Game) *string {
@@ -197,7 +215,7 @@ func getGameDate(ctx context.Context, game *scheduler.Game) (time.Time, error) {
 	var tm time.Time
 	if isNotNil(game) {
 		if isNotNil(game.GameDate) {
-			tm, err := time.Parse(string(design.DateTimeFormat), *game.GameDate)
+			tm, err := time.Parse(string(DateTimeFormat), *game.GameDate)
 			if err != nil {
 				return tm, errors.New(fmt.Sprintf("error parsing time format: %s", *game.GameDate))
 			}
@@ -205,4 +223,71 @@ func getGameDate(ctx context.Context, game *scheduler.Game) (time.Time, error) {
 		}
 	}
 	return tm, errors.New("seems date value is null")
+}
+
+func getTimeFrame(date string) (string, error) {
+	t1, err := time.Parse(string(DateFormat), time.Now().Format(DateFormat))
+	if err != nil {
+		return "", err
+	}
+	t2, err := parseDate(date)
+	if err != nil {
+		return "", err
+	}
+	if t2.Equal(t1) {
+		return TimeFramePresent, nil
+	}
+	if t2.Before(t1) {
+		return TimeFrameFuture, nil
+	}
+	return TimeFramePast, nil
+}
+
+func parseDate(date string) (time.Time, error) {
+	tm, err := time.Parse(string(DateFormat), date)
+	if err != nil {
+		return tm, errors.New(fmt.Sprintf("error parsing date format: %s", date))
+	}
+	return tm, nil
+}
+
+func GetTimeFrameGameMap(ctx context.Context, g1 *scheduler.Game, g2 *scheduler.Game) (map[string]*scheduler.Game, error) {
+	timeFrameGameMap := make(map[string]*scheduler.Game)
+	// if it is single admission both games will gave doubleheader "Y"
+	if isSingleAdmission(ctx, g1) || isSingleAdmission(ctx, g2) {
+		if getStartTImeTBD(ctx, g1) && !getStartTImeTBD(ctx, g2) {
+			timeFrameGameMap[LaterGame] = g1
+			timeFrameGameMap[EarlierGame] = g2
+		}
+		timeFrameGameMap[LaterGame] = g2
+		timeFrameGameMap[EarlierGame] = g1
+		return timeFrameGameMap, nil
+	}
+	//even though if is it not split admission, we need to decide earlier & later games using gameDate
+	timeFrameGameMap, err := RearrangeGamesByGameDate(ctx, g1, g2)
+	if err != nil {
+		return nil, err
+	}
+	return timeFrameGameMap, nil
+}
+
+func RearrangeGamesByGameDate(ctx context.Context, g1 *scheduler.Game, g2 *scheduler.Game) (map[string]*scheduler.Game, error) {
+	timeFrameGameMap := make(map[string]*scheduler.Game)
+	//even though if is it not split admission, we need to decide earlier & later games using gameDate
+	g1Time, err := getGameDate(ctx, g1)
+	if err != nil {
+		return nil, err
+	}
+	g2Time, err := getGameDate(ctx, g2)
+	if err != nil {
+		return nil, err
+	}
+	if g1Time.Before(g2Time) {
+		timeFrameGameMap[EarlierGame] = g1
+		timeFrameGameMap[LaterGame] = g2
+	} else {
+		timeFrameGameMap[EarlierGame] = g2
+		timeFrameGameMap[LaterGame] = g1
+	}
+	return timeFrameGameMap, nil
 }
