@@ -13,7 +13,7 @@ import (
 const (
 	DateFormat       = "2006-01-02"
 	DateTimeFormat   = time.RFC3339
-	AvgGameDuration  = 4
+	AvgGameDuration  = 3
 	TimeFramePast    = "PAST"
 	TimeFrameFuture  = "FUTURE"
 	TimeFramePresent = "PRESENT"
@@ -106,8 +106,14 @@ func recursiveRearrange(s []*scheduler.Game, favGamesIndex []int) []*scheduler.G
 	index := len(favGamesIndex) - 1
 	gameIndex := favGamesIndex[index]
 	s = rearrangeGameSlice(s, *s[gameIndex], gameIndex)
-	// increment every value in favGamesIndex by one to make sure, we are rearranging correct value
-	return recursiveRearrange(s, incrementByOne(favGamesIndex[:index]))
+	// if we deleted element is on left side of next deleting element, no need to increment, if you deleted on right side on next deleting element
+	//  increment every value in favGamesIndex by one to make sure, we are rearranging correct value
+	if len(favGamesIndex) > 1 {
+		if gameIndex > favGamesIndex[index-1] {
+			favGamesIndex = incrementByOne(favGamesIndex)
+		}
+	}
+	return recursiveRearrange(s, favGamesIndex[:index])
 }
 
 /*
@@ -119,7 +125,6 @@ func recursiveRearrange(s []*scheduler.Game, favGamesIndex []int) []*scheduler.G
 *         doubleheader: S (split admission)
 *               decide first & second games based on gameDate
 *         if current date and game date matches, check for live or do future & past sorting
-*
  */
 func (s *schedulersrvc) CreateCustomIndex(ctx context.Context, date string, favGames []*scheduler.Game) ([]*scheduler.Game, error) {
 	var timeFrameGameMap map[string]*scheduler.Game
@@ -202,7 +207,7 @@ func (s *schedulersrvc) getGameDate(ctx context.Context, game *scheduler.Game) (
 		if isNotNil(game.GameDate) {
 			tm, err := time.Parse(string(DateTimeFormat), *game.GameDate)
 			if err != nil {
-				s.logger.Printf("error while parsing time: ", *game.GameDate)
+				s.logger.Printf("error while parsing time: %s", *game.GameDate)
 				return tm, fmt.Errorf("error parsing time format: %s", *game.GameDate)
 			}
 			return tm, nil
@@ -229,11 +234,11 @@ func getTimeFrame(date string) (string, error) {
 	if t2.Equal(t1) {
 		return TimeFramePresent, nil
 	}
-	// check weather given date is future event or not
+	// check weather given date is past event or not
 	if t2.Before(t1) {
-		return TimeFrameFuture, nil
+		return TimeFramePast, nil
 	}
-	return TimeFramePast, nil
+	return TimeFrameFuture, nil
 }
 
 /*
@@ -277,6 +282,7 @@ func (s *schedulersrvc) RearrangeGamesByGameDate(ctx context.Context, g1 *schedu
 	if err != nil {
 		return nil, err
 	}
+	// is game1 start time before game 2
 	if g1Time.Before(g2Time) {
 		timeFrameGameMap[EarlierGame] = g1
 		timeFrameGameMap[LaterGame] = g2
@@ -307,11 +313,11 @@ func (s *schedulersrvc) RearrangeGamesByLiveStatus(ctx context.Context, g1 *sche
 		s.logger.Printf("error parsing game date (RearrangeGamesByLiveStatus): %s", err.Error())
 		return nil, err
 	}
-	if g1time.After(currentTime) && g1time.Before(window) {
+	if currentTime.After(g1time) && g1time.Before(window) && !g2time.Before(currentTime) {
 		res = append(res, g1, g2)
 		return res, nil
 	}
-	if g2time.After(currentTime) && g2time.Before(window) {
+	if currentTime.After(g2time) && g2time.Before(window) && !g2time.Before(g1time) {
 		res = append(res, g2, g1)
 		return res, nil
 	}
