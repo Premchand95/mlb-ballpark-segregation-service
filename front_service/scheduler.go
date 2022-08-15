@@ -3,6 +3,7 @@ package front_service
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 
 	scheduler "github.com/mlb/mlb-ballpark-segregation-service/front_service/gen/scheduler"
@@ -26,6 +27,10 @@ var (
 	_ scheduler.Service = (*schedulersrvc)(nil)
 )
 
+const (
+	internalErrMessage = "please contact administrator for more details"
+)
+
 // NewScheduler returns the Scheduler service implementation.
 func NewScheduler(params *SchedulerParams) (scheduler.Service, error) {
 	if params.StatsC == nil {
@@ -38,24 +43,29 @@ func NewScheduler(params *SchedulerParams) (scheduler.Service, error) {
 }
 
 // Retrieves a schedule of games
-func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (res *scheduler.Schedule, err error) {
-	res = &scheduler.Schedule{}
+func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (*scheduler.Schedule, error) {
+	// function parameters
+	var (
+		res   *scheduler.Schedule
+		err   error
+		games []*scheduler.Game
+	)
 
+	// call stats API to get raw schedule
 	res, err = s.statsC.GetStatsAPISchedule(ctx, p.Date)
 	if err != nil {
-		s.logger.Print("error", err)
-		return nil, err
+		s.logger.Print("error while making call to stats API: ", err)
+		return nil, scheduler.MakeInternalError(fmt.Errorf(internalErrMessage))
 	}
-
-	var games []*scheduler.Game
 
 	if isNotNil(res) {
 		// len of nil array is 0
 		if len(res.Dates) <= 0 {
 			s.logger.Printf("No games scheduled on this date: %s", p.Date)
-
+			return res, nil
 		}
 
+		// checking date to avoid NIL segmentation errors
 		var date scheduler.Date
 		for _, d := range res.Dates {
 			if isNotNil(d.Date) {
@@ -66,25 +76,29 @@ func (s *schedulersrvc) Index(ctx context.Context, p *scheduler.IndexPayload) (r
 		}
 		games = append(games, date.Games...)
 	}
-
-	favTeamGames := s.getFavoriteTeamGames(ctx, p.ID, games)
+	// get the favorite games for the given team
+	favTeamGames := s.GetFavoriteTeamGames(ctx, p.ID, games)
 	if len(favTeamGames) == 0 {
 		// there is no games for our fav team on given day, so return response as it is.
-		s.logger.Print("there is no games for our fav team on given day", len(favTeamGames))
+		s.logger.Print("there is no games for our fav team on given day ", len(favTeamGames))
 		return res, nil
 	}
+
 	// we are sure one team plays only two games for a day
 	if len(favTeamGames) == 2 {
 		// we have to deal with doubleheader situation & rearrange the index in custom order.
-		favTeamGames, err = CreateCustomIndex(ctx, p.Date, favTeamGames)
+		// this function also handles past, future dates & rearrange the games in custom order
+		favTeamGames, err = s.CreateCustomIndex(ctx, p.Date, favTeamGames)
 		if err != nil {
-			return
+			return nil, scheduler.MakeInternalError(fmt.Errorf(internalErrMessage))
 		}
 	}
+	// get the indices of the games
 	favIndices := GetIndexOfGames(games, favTeamGames)
 	s.logger.Printf("the indices of the fav games: %v", favIndices)
+	// rearrange the order of games array
 	games = recursiveRearrange(games, favIndices)
+	// attach the final custom order of games to result
 	res.Dates[0].Games = games
-	s.logger.Print("favGames len", len(favTeamGames))
-	return
+	return res, nil
 }
