@@ -1,7 +1,8 @@
 # MLB-Ballpark-services
 
-Related Resources
+The MLB BallPark Segregation Service API provides REST-ful API to retrieve custom schedules of mlb games
 
+## Prerequisites
 
 ## Project Structure
 
@@ -12,7 +13,9 @@ GOPATH
 │   ├── mlb          
 │   │   ├── mlb-ballpark-segregation-service
 │   │   │   └── front-service/design
-|   |   |   └── DockerFile        
+|   |   |   └── front-service/gen
+|   |   |   └── Makefile
+|   |   |   └── DockerFile       
 └── ...
 
 ```
